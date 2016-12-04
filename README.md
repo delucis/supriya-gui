@@ -11,7 +11,7 @@ Sorted chronologically by publication date.
 
 - [x] 2015/10/22, [Choosing a Front End Framework: Angular vs. Ember vs. React](https://smashingboxes.com/blog/choosing-a-front-end-framework-angular-ember-react/)
 
-- [ ] 2015/11/23, [Forget Angular & Ember, React Has Already Won the Client-Side War](https://www.sitepoint.com/react-has-won-the-client-side-war/)
+- [x] 2015/11/23, [Forget Angular & Ember, React Has Already Won the Client-Side War](https://www.sitepoint.com/react-has-won-the-client-side-war/)
 
 - [x] 2016/01/03, [Angular 2 versus React: There Will Be Blood](https://medium.freecodecamp.com/angular-2-versus-react-there-will-be-blood-66595faafd51#.r7n5jff50)
 
