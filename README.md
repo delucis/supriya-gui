@@ -13,6 +13,8 @@ Sorted chronologically by publication date.
 
 - [ ] 2015/11/23, [Forget Angular & Ember, React Has Already Won the Client-Side War](https://www.sitepoint.com/react-has-won-the-client-side-war/)
 
+- [ ] 2016/01/03, [Angular 2 versus React: There Will Be Blood](https://medium.freecodecamp.com/angular-2-versus-react-there-will-be-blood-66595faafd51#.r7n5jff50)
+
 - [ ] 2016/02/18, [React vs Backbone vs Angular vs Ember. A small guide](http://whiteprompt.com/react/react-vs-backbone-vs-angular-vs-ember-small-guide/)
 
 ## Tutorials/guides
