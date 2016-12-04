@@ -21,6 +21,8 @@ Sorted chronologically by publication date.
 
 - [ ] 2016/06/30, [Consider VueJS for Your Next Web Project](https://blog.codeship.com/consider-vuejs-next-web-project/)
 
+- [ ] 2016/10/20, [Why We Chose Vue.js](https://about.gitlab.com/2016/10/20/why-we-chose-vue/)
+
 ## Tutorials/guides
 
 ### React
