@@ -17,6 +17,10 @@ Sorted chronologically by publication date.
 
 - [x] 2016/01/03, [Angular 2 versus React: There Will Be Blood](https://medium.freecodecamp.com/angular-2-versus-react-there-will-be-blood-66595faafd51#.r7n5jff50)
 
+- [ ] 2016/05/03, [Vue.js vs React.js](https://rlafranchi.github.io/2016/05/03/vue-vs-react/)
+
+- [ ] 2016/06/30, [Consider VueJS for Your Next Web Project](https://blog.codeship.com/consider-vuejs-next-web-project/)
+
 ## Tutorials/guides
 
 ### React
