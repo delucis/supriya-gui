@@ -37,3 +37,16 @@ Sorted chronologically by publication date.
 ### Vue
 
 - [Official introduction](https://vuejs.org/v2/guide/)
+
+## Libraries
+
+- [React](https://facebook.github.io/react/)
+
+- [Vue](https://vuejs.org/)
+  > Vue is designed from the ground up to be incrementally adoptable. The core library is focused on the view layer only, and is very easy to pick up and integrate with other libraries or existing projects.
+
+- [NexusUI](http://nexusosc.com/)
+  > NexusUI is a JavaScript library of HTML5 audio interface components that can control web audio or transmit OSC data to other applications such as Max or SuperCollider.
+
+- [socket.io](http://socket.io/)
+  - Previous test repo: [socket-test](https://github.com/delucis/socket-test)
