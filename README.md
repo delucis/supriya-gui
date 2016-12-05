@@ -37,6 +37,7 @@ Sorted chronologically by publication date.
 ### Vue
 
 - [Official introduction](https://vuejs.org/v2/guide/)
+- 2016/07/14, [Create an App in VueJS 2](https://auth0.com/blog/create-an-app-in-vuejs-2/)
 
 ## Libraries
 
