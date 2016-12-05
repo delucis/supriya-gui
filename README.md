@@ -17,7 +17,7 @@ Sorted chronologically by publication date.
 
 - [x] 2016/01/03, [Angular 2 versus React: There Will Be Blood](https://medium.freecodecamp.com/angular-2-versus-react-there-will-be-blood-66595faafd51#.r7n5jff50)
 
-- [ ] 2016/05/03, [Vue.js vs React.js](https://rlafranchi.github.io/2016/05/03/vue-vs-react/)
+- [x] 2016/05/03, [Vue.js vs React.js](https://rlafranchi.github.io/2016/05/03/vue-vs-react/)
 
 - [ ] 2016/06/30, [Consider VueJS for Your Next Web Project](https://blog.codeship.com/consider-vuejs-next-web-project/)
 
@@ -40,13 +40,13 @@ Sorted chronologically by publication date.
 
 ## Libraries
 
-- [React](https://facebook.github.io/react/)
+- [React](https://facebook.github.io/react/) ([repo](https://github.com/facebook/react))
 
-- [Vue](https://vuejs.org/)
+- [Vue](https://vuejs.org/) ([repo](https://github.com/vuejs/vue))
   > Vue is designed from the ground up to be incrementally adoptable. The core library is focused on the view layer only, and is very easy to pick up and integrate with other libraries or existing projects.
 
-- [NexusUI](http://nexusosc.com/)
+- [NexusUI](http://nexusosc.com/) ([repo](https://github.com/lsu-emdm/nexusUI))
   > NexusUI is a JavaScript library of HTML5 audio interface components that can control web audio or transmit OSC data to other applications such as Max or SuperCollider.
 
-- [socket.io](http://socket.io/)
+- [socket.io](http://socket.io/) ([repo](https://github.com/socketio/socket.io))
   - Previous test repo: [socket-test](https://github.com/delucis/socket-test)
