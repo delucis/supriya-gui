@@ -1,0 +1,19 @@
+{
+  "name": "web-gui",
+  "version": "0.1.0",
+  "description": "Notes/research log on web GUI best practices.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/delucis/web-gui.git"
+  },
+  "author": "Chris Swithinbank <swithinbank@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/delucis/web-gui/issues"
+  },
+  "homepage": "https://github.com/delucis/web-gui#readme"
+}
