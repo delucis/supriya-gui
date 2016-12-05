@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/delucis/web-gui/issues"
   },
-  "homepage": "https://github.com/delucis/web-gui#readme"
+  "homepage": "https://github.com/delucis/web-gui#readme",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
 }
