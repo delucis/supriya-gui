@@ -43,7 +43,7 @@ Sorted chronologically by publication date.
 
 - [React](https://facebook.github.io/react/) ([repo](https://github.com/facebook/react))
 
-- [Vue](https://vuejs.org/) ([repo](https://github.com/vuejs/vue))
+- [Vue](https://vuejs.org/) ([repo](https://github.com/vuejs/vue), [Chrome DevTools extension](https://github.com/vuejs/vue-devtools))
   > Vue is designed from the ground up to be incrementally adoptable. The core library is focused on the view layer only, and is very easy to pick up and integrate with other libraries or existing projects.
 
 - [NexusUI](http://nexusosc.com/) ([repo](https://github.com/lsu-emdm/nexusUI))
