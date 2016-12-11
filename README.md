@@ -4,6 +4,9 @@ Notes/research log on web GUI best practices.
 
 ## Reading list
 
+<details>
+<summary>Show list…</summary>
+
 Sorted chronologically by publication date.
 
 - [x] 2015/02/02, [React.js Conf 2015 - Hype](https://youtu.be/z5e7kWSHWTg?t=2m30s)
@@ -22,6 +25,8 @@ Sorted chronologically by publication date.
 - [x] 2016/06/30, [Consider VueJS for Your Next Web Project](https://blog.codeship.com/consider-vuejs-next-web-project/)
 
 - [x] 2016/10/20, [Why We Chose Vue.js](https://about.gitlab.com/2016/10/20/why-we-chose-vue/)
+
+</details>
 
 ## Tutorials/guides
 
