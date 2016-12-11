@@ -3,8 +3,12 @@
   "version": "0.1.0",
   "description": "Notes/research log on web GUI best practices.",
   "main": "index.js",
+  "browser": {
+    "vue": "vue/dist/vue.common"
+  },
   "scripts": {
     "start": "node server.js",
+    "build": "browserify app.js -o public/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -20,5 +24,8 @@
   "dependencies": {
     "express": "^4.14.0",
     "vue": "^2.1.4"
+  },
+  "devDependencies": {
+    "browserify": "^13.1.1"
   }
 }
