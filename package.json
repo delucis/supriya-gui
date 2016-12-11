@@ -1,6 +1,6 @@
 {
   "name": "web-gui",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Notes/research log on web GUI best practices.",
   "main": "index.js",
   "browser": {
@@ -8,7 +8,8 @@
   },
   "scripts": {
     "start": "node server.js",
-    "build": "browserify app.js -o public/app.js",
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --open --inline --hot",
+    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -26,6 +27,15 @@
     "vue": "^2.1.4"
   },
   "devDependencies": {
-    "browserify": "^13.1.1"
+    "babel-core": "^6.20.0",
+    "babel-loader": "^6.2.9",
+    "babel-preset-es2015": "^6.18.0",
+    "cross-env": "^3.1.3",
+    "css-loader": "^0.26.1",
+    "file-loader": "^0.9.0",
+    "vue-loader": "^10.0.2",
+    "vue-template-compiler": "^2.1.4",
+    "webpack": "^2.1.0-beta.27",
+    "webpack-dev-server": "^2.1.0-beta.12"
   }
 }
