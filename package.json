@@ -1,6 +1,6 @@
 {
   "name": "web-gui",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Notes/research log on web GUI best practices.",
   "main": "index.js",
   "browser": {
