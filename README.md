@@ -2,6 +2,27 @@
 
 Notes/research log on web GUI best practices.
 
+## Install
+
+``` bash
+git clone git@github.com:delucis/web-gui.git
+cd web-gui
+npm install
+```
+
+## Scripts
+
+```sh
+# serve with hot reload at localhost:8080
+npm run dev
+
+# build for production with minification
+npm run build
+
+# build & run from a simple Express server at localhost:8888
+npm start
+```
+
 ## Reading list
 
 <details>
