@@ -47,7 +47,7 @@ Sorted chronologically by publication date.
 ### HTML
 
 - [Playing With The HTML5 range Slider Input](http://thenewcode.com/757/Playing-With-The-HTML5-range-Slider-Input)
-- [HTML5 <meter> CodePen demo](http://codepen.io/pankajparashar/full/GnFpA)
+- [HTML5 `<meter>` CodePen demo](http://codepen.io/pankajparashar/full/GnFpA)
 
 ## Libraries
 
