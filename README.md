@@ -23,6 +23,10 @@ npm run build
 npm start
 ```
 
+## API Notes
+
+- [Supriya JSON examples](https://gist.github.com/josiah-wolf-oberholtzer/2bb611ffbd1fe0a1f2e8c44dd64666be)
+
 ## Reading list
 
 <details>
