@@ -1,38 +1,51 @@
 {
-  "instruments": {
-    "bob": {
-      "controls": {
-        "volume": {
+  "instruments": [
+    {
+      "name" : "bob",
+      "controls": [
+        {
+          "name": "volume",
           "type": "slider",
           "value": -0.5,
           "min": -70,
           "max": 6,
           "unit": "dB",
-          "scale": "log"
+          "scale": "log",
+          "showLabel": true,
+          "showValue": true
         },
-        "on/off": {
+        {
+          "name": "empty-test",
+          "type": "slider"
+        },
+        {
+          "name": "on/off",
           "type": "toggle",
           "value": 0
         }
-      }
+      ]
     },
-    "sue": {
-      "controls": {
-        "play": {
+    {
+      "name": "sue",
+      "controls": [
+        {
+          "name": "play",
           "type": "button"
         },
-        "stop": {
+        {
+          "name": "stop",
           "type": "button"
         },
-        "volume": {
+        {
+          "name": "volume",
           "type": "slider",
           "value": -6,
           "min": -70,
           "max": 6,
           "unit": "dB",
           "scale": "log"
-        },
-      }
+        }
+      ]
     }
-  }
+  ]
 }
