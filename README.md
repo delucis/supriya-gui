@@ -73,6 +73,7 @@ Sorted chronologically by publication date.
 
 - [Playing With The HTML5 range Slider Input](http://thenewcode.com/757/Playing-With-The-HTML5-range-Slider-Input)
 - [HTML5 `<meter>` CodePen demo](http://codepen.io/pankajparashar/full/GnFpA)
+- [CSS radio buttons CodePen](http://codepen.io/triss90/details/XNEdRe)
 
 ## Libraries
 
