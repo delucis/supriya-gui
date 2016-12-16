@@ -27,6 +27,99 @@ npm start
 
 - [Supriya JSON examples](https://gist.github.com/josiah-wolf-oberholtzer/2bb611ffbd1fe0a1f2e8c44dd64666be)
 
+### Data types
+
+#### Synth definitions
+
+- `synthdef` (Object) [&rarr;](https://gist.github.com/josiah-wolf-oberholtzer/2bb611ffbd1fe0a1f2e8c44dd64666be#file-synthdef-json-L2)
+  - `hash` (String)
+  - `name` (String)
+  - `parameters` (Object)
+    - `parameter` (Object) [`amplitude`, `frequency`, `gate`, `out`, `pan` …]
+      - `range` (Array) [``[_min, _max]``, `null` …]
+      - `rate` (String) [`control`, `scalar` …]
+      - `unit` (String) [`linear`, `decibels`, `hertz`, `boolean`, `bus_id` …]
+      - `value` (Number)
+
+  Defines the model that a node in the `server-tree` will be based on. Can have an arbitrary number of `parameters` and is referred to via its unique `hash`.
+
+---
+
+#### Server
+
+##### Server tree
+
+- `server-tree` (Object) [&rarr;](https://gist.github.com/josiah-wolf-oberholtzer/2bb611ffbd1fe0a1f2e8c44dd64666be#file-server-tree-nested-json)
+
+  The `server-tree` consists of a network of nested `children`:
+
+  - `children` (Array)
+    - (Object)
+      - `node_id` (Number)
+      - `synthdef` (String)
+      - `controls` (Object)
+        - `_parameter` (Number)
+      - `children` (Array) _recursive_
+
+  e.g. this `children` node contains the values for a specific instance of the `synthdef` [defined here](https://gist.github.com/josiah-wolf-oberholtzer/2bb611ffbd1fe0a1f2e8c44dd64666be#file-synthdef-json) (referenced via its unique hash):
+  ```json
+  {
+      "controls": {
+          "amplitude": 0.846831738948822,
+          "frequency": 1522.9603271484375,
+          "gate": 0.0,
+          "out": 16.0,
+          "pan": 0.733410477638245
+      },
+      "node_id": 1010,
+      "synthdef": "da0982184cc8fa54cf9d288a0fe1f6ca"
+  }
+  ```
+
+  However, a `children` node may also contain minimal `controls` and many `children` of its own.
+
+  ---
+
+- `server-tree` (Array) [&rarr;](https://gist.github.com/josiah-wolf-oberholtzer/2bb611ffbd1fe0a1f2e8c44dd64666be#file-server-tree-flat-json)
+
+  The `server-tree` can alternatively be represented as a flat array of nodes. These nodes are identical in structure to the `children` above but they gain a `parent` property referencing their `parent`’s `node_id`, and their `children` property is an array of `node_id` references rather than the full objects:
+
+  - (Object)
+    - `node_id` (Number)
+    - `synthdef` (String)
+    - `controls` (Object)
+      - `_parameter` (Number)
+    - `children` (Array)
+    - `parent` (Number)
+
+---
+
+##### General
+
+  - `server-meters` (Object) [&rarr;](https://gist.github.com/josiah-wolf-oberholtzer/2bb611ffbd1fe0a1f2e8c44dd64666be#file-server-meters-json-L2)
+    - `input_meter_peak_levels` (Array)
+    - `input_meter_rms_levels` (Array)
+    - `output_meter_peak_levels` (Array)
+    - `output_meter_rms_levels` (Array)
+
+    Contains data about global audio input and output levels (peak & RMS). Each array is an array of floats, 8 in [the example JSON](https://gist.github.com/josiah-wolf-oberholtzer/2bb611ffbd1fe0a1f2e8c44dd64666be#file-server-meters-json).
+
+    ---
+
+  - `status` (Object) [&rarr;](https://gist.github.com/josiah-wolf-oberholtzer/2bb611ffbd1fe0a1f2e8c44dd64666be#file-server-status-json-L2)
+    - `actual_sample_rate` (Number)
+    - `average_cpu_usage` (Number)
+    - `group_count` (Number)
+    - `peak_cpu_usage` (Number)
+    - `synth_count` (Number)
+    - `synthdef_count` (Number)
+    - `target_sample_rate` (Number)
+    - `ugen_count` (Number)
+
+    Various basic data describing the status of the server.
+
+---
+
 ## Reading list
 
 <details>
