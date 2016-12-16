@@ -35,7 +35,7 @@ npm start
   - `hash` (String)
   - `name` (String)
   - `parameters` (Object)
-    - `parameter` (Object) [`amplitude`, `frequency`, `gate`, `out`, `pan` …]
+    - `_parameter` (Object) [`amplitude`, `frequency`, `gate`, `out`, `pan` …]
       - `range` (Array) [``[_min, _max]``, `null` …]
       - `rate` (String) [`control`, `scalar` …]
       - `unit` (String) [`linear`, `decibels`, `hertz`, `boolean`, `bus_id` …]
