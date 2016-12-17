@@ -41,7 +41,7 @@ npm start
       - `unit` (String) [`linear`, `decibels`, `hertz`, `boolean`, `bus_id` …]
       - `value` (Number)
 
-  Defines the model that a node in the `server-tree` will be based on. Can have an arbitrary number of `parameters` and is referred to via its unique `hash`.
+  Defines the model that a node in the `server_tree` will be based on. Can have an arbitrary number of `parameters` and is referred to via its unique `hash`.
 
 ---
 
@@ -49,9 +49,9 @@ npm start
 
 ##### Server tree
 
-- `server-tree` (Object) [&rarr;](https://gist.github.com/josiah-wolf-oberholtzer/2bb611ffbd1fe0a1f2e8c44dd64666be#file-server-tree-nested-json)
+- `server_tree` (Object) [&rarr;](https://gist.github.com/josiah-wolf-oberholtzer/2bb611ffbd1fe0a1f2e8c44dd64666be#file-server-tree-nested-json)
 
-  The `server-tree` consists of a network of nested `children`:
+  The `server_tree` consists of a network of nested `children`:
 
   - `children` (Array)
     - (Object)
@@ -101,9 +101,9 @@ npm start
 
   ---
 
-- `server-tree` (Array) [&rarr;](https://gist.github.com/josiah-wolf-oberholtzer/2bb611ffbd1fe0a1f2e8c44dd64666be#file-server-tree-flat-json)
+- `server_tree` (Array) [&rarr;](https://gist.github.com/josiah-wolf-oberholtzer/2bb611ffbd1fe0a1f2e8c44dd64666be#file-server-tree-flat-json)
 
-  The `server-tree` can alternatively be represented as a flat array of nodes. These nodes are identical in structure to the `children` above but they gain a `parent` property referencing their `parent`’s `node_id`, and their `children` property is an array of `node_id` references rather than the full objects:
+  The `server_tree` can alternatively be represented as a flat array of nodes. These nodes are identical in structure to the `children` above but they gain a `parent` property referencing their `parent`’s `node_id`, and their `children` property is an array of `node_id` references rather than the full objects:
 
   - (Object)
     - `node_id` (Number)
@@ -119,7 +119,7 @@ npm start
 
 ##### General
 
-  - `server-meters` (Object) [&rarr;](https://gist.github.com/josiah-wolf-oberholtzer/2bb611ffbd1fe0a1f2e8c44dd64666be#file-server-meters-json-L2)
+  - `server_meters` (Object) [&rarr;](https://gist.github.com/josiah-wolf-oberholtzer/2bb611ffbd1fe0a1f2e8c44dd64666be#file-server-meters-json-L2)
     - `input_meter_peak_levels` (Array)
     - `input_meter_rms_levels` (Array)
     - `output_meter_peak_levels` (Array)
