@@ -113,6 +113,8 @@ npm start
     - `children` (Array)
     - `parent` (Number)
 
+  The node with a `node_id` of `0` can be considered the “root” of the graph.
+
 ---
 
 ##### General
