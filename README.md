@@ -67,7 +67,7 @@ npm start
       - `node_id` (Number)
       - `children` (Array) _recursive_
 
-    A `synth`-type node represents an instantiation of a `synthdef` is the following subset:
+    A `synth`-type node, representing an instantiation of a `synthdef`, is the following subset:
 
     - (Object)
       - `node_id` (Number)
