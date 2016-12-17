@@ -61,7 +61,21 @@ npm start
         - `_parameter` (Number)
       - `children` (Array) _recursive_
 
-  e.g. this `children` node contains the values for a specific instance of the `synthdef` [defined here](https://gist.github.com/josiah-wolf-oberholtzer/2bb611ffbd1fe0a1f2e8c44dd64666be#file-synthdef-json) (referenced via its unique hash):
+    Nodes are implicitly either a `group` or a `synth`. A `group`-type node allows structural hierarchy and may have additional meaning in Supriya. It is represented by the following subset:
+
+    - (Object)
+      - `node_id` (Number)
+      - `children` (Array) _recursive_
+
+    A `synth`-type node represents an instantiation of a `synthdef` is the following subset:
+
+    - (Object)
+      - `node_id` (Number)
+      - `synthdef` (String)
+      - `controls` (Object)
+        - `_parameter` (Number)
+
+   For example, this `children` node contains the values for a specific instance of the `synthdef` [defined here](https://gist.github.com/josiah-wolf-oberholtzer/2bb611ffbd1fe0a1f2e8c44dd64666be#file-synthdef-json) (referenced via its unique hash) and is implicitly of type `synth`:
   ```json
   {
       "controls": {
@@ -76,7 +90,14 @@ npm start
   }
   ```
 
-  However, a `children` node may also contain minimal `controls` and many `children` of its own.
+  ###### Summary of `synth` vs `group` types
+
+             | `group`               | `synth`
+  -----------|-----------------------|----------------------
+  `node_id`  | &check;               | &check;
+  `synthdef` | &cross;               | &check;
+  `controls` | &cross;               | &check; (`.size` ≥ 0)
+  `children` | &check; (`.size` ≥ 0) | &cross;
 
   ---
 
