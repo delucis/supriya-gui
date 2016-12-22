@@ -1,4 +1,56 @@
 {
+  "status": {
+    "actual_sample_rate": 44100.05692801021,
+    "average_cpu_usage": 8.151924133300781,
+    "group_count": 6,
+    "peak_cpu_usage": 15.151398658752441,
+    "synth_count": 19,
+    "synthdef_count": 42,
+    "target_sample_rate": 44100.0,
+    "ugen_count": 685
+  },
+  "server_meters": {
+    "input_meter_peak_levels": [
+      0.031249552965164185,
+      0.031249552965164185,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "input_meter_rms_levels": [
+      0.010318668559193611,
+      0.010318668559193611,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "output_meter_peak_levels": [
+      0.16099141538143158,
+      0.1611536592245102,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "output_meter_rms_levels": [
+      0.04269769415259361,
+      0.042732998728752136,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
   "instruments": [
     {
       "name" : "bob",
