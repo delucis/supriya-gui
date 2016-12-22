@@ -51,6 +51,144 @@
       0.0
     ]
   },
+  "server_tree": [
+    {
+      "children": [
+        1,
+        1000,
+        1001
+      ],
+      "node_id": 0,
+      "parent": null
+    },
+    {
+      "children": [
+        1002,
+        1003
+      ],
+      "node_id": 1,
+      "parent": 0
+    },
+    {
+      "children": [
+        1105,
+        1098,
+        1096,
+        1010
+      ],
+      "node_id": 1002,
+      "parent": 1
+    },
+    {
+      "controls": {
+        "damping": 0.06623425334692,
+        "duration": 3.652155876159668,
+        "level": 0.894767701625824,
+        "out": 16.0,
+        "room_size": 0.918643176555634
+      },
+      "node_id": 1105,
+      "parent": 1002,
+      "synthdef": "dca557070c6b57164557041ac746fb3f"
+    },
+    {
+      "controls": {
+        "duration": 5.701356887817383,
+        "level": 0.959683060646057,
+        "out": 16.0,
+        "pitch_dispersion": 0.040342573076487,
+        "pitch_shift": 10.517594337463379,
+        "time_dispersion": 0.666014134883881,
+        "window_size": 1.014111995697021
+      },
+      "node_id": 1098,
+      "parent": 1002,
+      "synthdef": "cc754c63533fdcf412a44ef6adb1a8f0"
+    },
+    {
+      "controls": {
+        "duration": 5.892660140991211,
+        "level": 0.159362614154816,
+        "out": 16.0
+      },
+      "node_id": 1096,
+      "parent": 1002,
+      "synthdef": "5cb6fb104ee1dc44d6b300e13112d37a"
+    },
+    {
+      "controls": {
+        "amplitude": 0.846831738948822,
+        "frequency": 1522.9603271484375,
+        "gate": 0.0,
+        "out": 16.0,
+        "pan": 0.733410477638245
+      },
+      "node_id": 1010,
+      "parent": 1002,
+      "synthdef": "da0982184cc8fa54cf9d288a0fe1f6ca"
+    },
+    {
+      "controls": {
+        "done_action": 2.0,
+        "fade_time": 0.019999999552965,
+        "gate": 1.0,
+        "in_": 16.0,
+        "out": 0.0
+      },
+      "node_id": 1003,
+      "parent": 1,
+      "synthdef": "454b69a7c505ddecc5b39762d291a5ec"
+    },
+    {
+      "controls": {
+        "band_1_clamp_time": 0.009999999776483,
+        "band_1_postgain": 1.0,
+        "band_1_pregain": 6.0,
+        "band_1_relax_time": 0.100000001490116,
+        "band_1_slope_above": 1.0,
+        "band_1_slope_below": 1.0,
+        "band_1_threshold": 0.0,
+        "band_2_clamp_time": 0.009999999776483,
+        "band_2_postgain": 1.0,
+        "band_2_pregain": 3.0,
+        "band_2_relax_time": 0.100000001490116,
+        "band_2_slope_above": 0.5,
+        "band_2_slope_below": 1.0,
+        "band_2_threshold": -6.0,
+        "band_3_clamp_time": 0.009999999776483,
+        "band_3_postgain": 1.0,
+        "band_3_pregain": -3.0,
+        "band_3_relax_time": 0.100000001490116,
+        "band_3_slope_above": 0.25,
+        "band_3_slope_below": 1.0,
+        "band_3_threshold": -12.0,
+        "band_4_clamp_time": 0.009999999776483,
+        "band_4_postgain": 1.0,
+        "band_4_pregain": -3.0,
+        "band_4_relax_time": 0.100000001490116,
+        "band_4_slope_above": 0.125,
+        "band_4_slope_below": 1.0,
+        "band_4_threshold": -18.0,
+        "frequency_1": 200.0,
+        "frequency_2": 2000.0,
+        "frequency_3": 5000.0,
+        "in_": 0.0,
+        "out": 0.0
+      },
+      "node_id": 1000,
+      "parent": 0,
+      "synthdef": "72696657e1216698c415e704ea8ab9a2"
+    },
+    {
+      "controls": {
+        "level": 1.0,
+        "out": 0.0
+      },
+      "node_id": 1001,
+      "parent": 0,
+      "synthdef": "c1aa521afab5b0c0ce3d744690951649"
+    }
+  ],
   "instruments": [
     {
       "name" : "bob",
