@@ -3,6 +3,8 @@ require('normalize.css');
 
 // import and set-up Vue
 import Vue from 'vue'
+
+// import app components/structure from <App> Vue.js component
 import App from './App.vue'
 
 
