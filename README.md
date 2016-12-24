@@ -184,6 +184,17 @@ Sorted chronologically by publication date.
 
 - [Official introduction](https://vuejs.org/v2/guide/)
 - 2016/07/14, [Create an App in VueJS 2](https://auth0.com/blog/create-an-app-in-vuejs-2/)
+- [Dynamic Components](https://vuejs.org/v2/guide/components.html#Dynamic-Components) in official documentation
+
+#### Flat Array to Nested tree
+
+- Laracasts Questions: [1](https://laracasts.com/discuss/channels/vue/how-to-nest-the-dom-from-flat-json-data), [2](https://laracasts.com/discuss/channels/vue/best-way-to-create-nested-dom-from-array-in-vue?page=1)
+- [JS Bin Demo from above questions](http://jsbin.com/jopofi/1/edit?html,js,output)
+
+#### Vuex/State management
+
+- [Official documentation](https://vuex.vuejs.org/en/)
+- 2016/04/20, [Learn Vuex by Building a Notes App](https://coligo.io/learn-vuex-by-building-notes-app/)
 
 ### HTML
 
