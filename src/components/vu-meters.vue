@@ -8,7 +8,7 @@
                 :height="height">
       </vu-meter>
     </div>
-    <p v-if="name" v-text="name"></p>
+    <p v-if="name" v-text="prettyName"></p>
   </div>
 </template>
 
@@ -41,6 +41,11 @@ export default {
     showPeaks: {
       type: Boolean,
       default: false
+    }
+  },
+  computed: {
+    prettyName: function () {
+      return this.name.replace(/_/g, ' ');
     }
   },
   components: {
