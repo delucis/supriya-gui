@@ -16,3 +16,14 @@ new Vue({
   store,
   render: h => h(App)
 })
+
+
+/*
+    MOCK UP SOME DATA INPUT
+*/
+// import dummy data
+import appData from './supriya-dummy-1.json'
+
+// commit dummy data to store for testing
+store.commit('update_server_status', appData.server_status)
+store.commit('update_server_meters', appData.server_meters)
