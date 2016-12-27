@@ -44,10 +44,12 @@ export default {
   },
   computed: {
     average_cpu_usage () {
-      return Math.round((this.status.average_cpu_usage + 0.00001) * 100) / 100
+      let avg = Math.round((this.status.average_cpu_usage + 0.00001) * 10) / 10
+      return avg.toFixed(1)
     },
     peak_cpu_usage () {
-      return Math.round((this.status.peak_cpu_usage + 0.00001) * 100) / 100
+      let peak = Math.round((this.status.peak_cpu_usage + 0.00001) * 10) / 10
+      return peak.toFixed(1)
     }
   }
 }
