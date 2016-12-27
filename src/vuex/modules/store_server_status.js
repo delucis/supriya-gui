@@ -1,3 +1,5 @@
+import Vue from 'vue'
+
 // create a Vuex store module to hold server status data
 export default {
   state: {
@@ -17,7 +19,9 @@ export default {
             && state.hasOwnProperty(property)
             && typeof payload[property] === typeof state[property])
         {
-          state[property] = payload[property]
+          Vue.set(state, property, payload[property])
+        } else {
+          console.error('update_server_status(): Unknown server status property “' + property + '”.');
         }
       }
     }
