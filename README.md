@@ -92,12 +92,15 @@ npm start
 
   ###### Summary of `synth` vs `group` types
 
-             | `group`               | `synth`
-  -----------|-----------------------|----------------------
-  `node_id`  | &check;               | &check;
-  `synthdef` | &cross;               | &check;
-  `controls` | &cross;               | &check; (`.size` ≥ 0)
-  `children` | &check; (`.size` ≥ 0) | &cross;
+                       | `group`               | `synth`
+  ---------------------|-----------------------|----------------------
+  `node_id`            | &check;               | &check;
+  `parent`<sup>†</sup> | &check;               | &check;
+  `synthdef`           | &cross;               | &check;
+  `controls`           | &cross;               | &check; (`.size` ≥ 0)
+  `children`           | &check; (`.size` ≥ 0) | &cross;
+
+  <sup>†</sup> only explicitly in `server_tree` when provided as an Array (see below)
 
   ---
 
