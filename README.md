@@ -1,6 +1,6 @@
 # web-gui
 
-Notes/research log on web GUI best practices.
+Web GUI for [Supriya](http://supriya.mbrsi.org/).
 
 ## Install
 
