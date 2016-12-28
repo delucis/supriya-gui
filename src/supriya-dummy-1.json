@@ -188,54 +188,5 @@
       "parent": 0,
       "synthdef": "c1aa521afab5b0c0ce3d744690951649"
     }
-  ],
-  "instruments": [
-    {
-      "name" : "bob",
-      "controls": [
-        {
-          "name": "volume",
-          "type": "slider",
-          "value": -0.5,
-          "min": -70,
-          "max": 6,
-          "unit": "dB",
-          "scale": "log",
-          "showLabel": true,
-          "showValue": true
-        },
-        {
-          "name": "empty-test",
-          "type": "slider"
-        },
-        {
-          "name": "on/off",
-          "type": "toggle",
-          "value": 0
-        }
-      ]
-    },
-    {
-      "name": "sue",
-      "controls": [
-        {
-          "name": "play",
-          "type": "button"
-        },
-        {
-          "name": "stop",
-          "type": "button"
-        },
-        {
-          "name": "volume",
-          "type": "slider",
-          "value": -6,
-          "min": -70,
-          "max": 6,
-          "unit": "dB",
-          "scale": "log"
-        }
-      ]
-    }
   ]
 }
