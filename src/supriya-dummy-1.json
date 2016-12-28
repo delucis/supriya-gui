@@ -188,5 +188,55 @@
       "parent": 0,
       "synthdef": "c1aa521afab5b0c0ce3d744690951649"
     }
-  ]
+  ],
+  "synthdefs": {
+    "da0982184cc8fa54cf9d288a0fe1f6ca": {
+      "hash": "da0982184cc8fa54cf9d288a0fe1f6ca",
+      "name": "default",
+      "parameters": {
+        "amplitude": {
+          "range": [
+            "-inf",
+            12,
+          ],
+          "rate": "control",
+          "unit": "decibels",
+          "value": 0.0
+        },
+        "frequency": {
+          "range": [
+            0,
+            20000,
+          ],
+          "rate": "control",
+          "unit": "hertz",
+          "value": 440.0
+        },
+        "gate": {
+          "range": [
+            0,
+            1
+          ],
+          "rate": "control",
+          "unit": "boolean",
+          "value": 1.0
+        },
+        "out": {
+          "range": null,
+          "rate": "scalar",
+          "unit": "bus_id",
+          "value": 0.0
+        },
+        "pan": {
+          "range": [
+            0,
+            1
+          ],
+          "rate": "control",
+          "unit": "linear",
+          "value": 0.5
+        }
+      }
+    }
+  }
 }
