@@ -197,7 +197,7 @@
         "amplitude": {
           "range": [
             "-inf",
-            12,
+            12
           ],
           "rate": "control",
           "unit": "decibels",
@@ -206,7 +206,7 @@
         "frequency": {
           "range": [
             0,
-            20000,
+            20000
           ],
           "rate": "control",
           "unit": "hertz",
