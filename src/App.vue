@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <app-bar></app-bar>
-    <supriya-controls :instruments="instruments"></supriya-controls>
+    <server-tree :server_tree="server_tree"></server-tree>
     <div style="display:flex">
       <vu-meters v-for="(values, key) in server_meters" :values="values" :name="key"></vu-meters>
     </div>
@@ -11,14 +11,14 @@
 
 <script>
 import appBar from './components/app-bar.vue'
-import supriyaControls from './components/supriya-controls.vue'
+import serverTree from './components/server-tree.vue'
 import vuMeters from './components/vu-meters.vue'
 import serverStatus from './components/server-status.vue'
 export default {
   name: 'app',
   components: {
     appBar,
-    supriyaControls,
+    serverTree,
     vuMeters,
     serverStatus
   },
@@ -28,6 +28,9 @@ export default {
     },
     server_meters () {
       return this.$store.state.server_meters
+    },
+    server_tree () {
+      return this.$store.state.server_tree
     }
   }
 }
