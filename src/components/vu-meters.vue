@@ -1,9 +1,9 @@
 <template lang="html">
   <div class="vu-meters">
     <div>
-      <vu-meter v-for="value in values"
-                :amp="value.peak"
-                :rms="value.rms"
+      <vu-meter v-for="level in levels"
+                :amp="level.peak"
+                :rms="level.rms"
                 :clipSize="clipSize"
                 :width="width"
                 :height="height">
@@ -18,7 +18,7 @@ import vuMeter from './vu-meter.vue'
 export default {
   name: 'vu-meters',
   props: {
-    values: {
+    levels: {
       type: Array,
       default: function () {
           return [
