@@ -3,7 +3,7 @@
     <app-bar></app-bar>
     <server-tree :server_tree="server_tree"></server-tree>
     <div style="display:flex">
-      <vu-meters v-for="(values, key) in server_meters" :values="values" :name="key"></vu-meters>
+      <vu-meters v-for="(levels, key) in server_meters" :levels="levels" :name="key" showPeaks showRMS showName></vu-meters>
     </div>
     <server-status :status="server_status"></server-status>
   </div>
