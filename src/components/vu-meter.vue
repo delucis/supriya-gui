@@ -9,12 +9,11 @@
 <script>
 export default {
   name: 'vu-meter',
+  data () {
+    return { peakVal: 0 }
+  },
   props: {
     amp: {
-      type: Number,
-      default: 0
-    },
-    peakVal: {
       type: Number,
       default: 0
     },
