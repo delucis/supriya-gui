@@ -73,7 +73,9 @@ export default {
     drawMeter: function(canvas, binding) {
       var clipSize = binding.value.clipSize;
       var showPeaks = binding.value.showPeaks;
+      var showRMS = binding.value.showRMS;
       var amp = binding.value.amp / 76 + 1;
+      var rms = binding.value.rms / 76 + 1;
       var peak = binding.value.peak / 76 + 1;
       var w = canvas.width;
       var h = canvas.height;
@@ -87,6 +89,10 @@ export default {
       ctx.clearRect(0, 0, w, h);
       ctx.fillStyle = gradient;
       ctx.fillRect(0, h - hInRange * amp, w, hInRange * amp);
+      if (showRMS) {
+        ctx.fillStyle = "rgba(0, 0, 0, 0.25)";
+        ctx.fillRect(0, h - hInRange * rms, w, hInRange * rms);
+      }
       if (showPeaks) {
         if (peak >= 1) {
           ctx.fillStyle = "red";
