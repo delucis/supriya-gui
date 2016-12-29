@@ -17,6 +17,10 @@ export default {
       type: Number,
       default: 0
     },
+    rms: {
+      type: Number,
+      default: 0
+    },
     refreshRate: {
       type: Number,
       default: 100
@@ -36,11 +40,18 @@ export default {
     showPeaks: {
       type: Boolean,
       default: false
+    },
+    showRMS: {
+      type: Boolean,
+      default: false
     }
   },
   computed: {
     dBAmp: function() {
       return 20 * Math.log10(this.amp);
+    },
+    dBRMS: function() {
+      return 20 * Math.log10(this.rms);
     },
     dBPeakVal: function() {
       return 20 * Math.log10(this.peakVal);
