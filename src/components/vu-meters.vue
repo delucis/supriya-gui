@@ -11,7 +11,7 @@
                 :showRMS="showRMS">
       </vu-meter>
     </div>
-    <p v-if="name" v-text="prettyName"></p>
+    <p v-if="showName && name" v-text="prettyName"></p>
   </div>
 </template>
 
@@ -31,6 +31,10 @@ export default {
     },
     name: {
       type: String
+    },
+    showName: {
+      type: Boolean,
+      default: false
     },
     clipSize: {
       type: Number,
