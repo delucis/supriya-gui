@@ -2,7 +2,7 @@
   <canvas class="vu-meter"
           :width="width"
           :height="height"
-          v-draw-meter="{ amp: dBVal, peak: dBPeakVal, clipSize: clipSize, showPeaks: showPeaks }">
+          v-draw-meter="{ amp: dBAmp, rms: dBRMS, peak: dBPeakVal, clipSize: clipSize, showPeaks: showPeaks, showRMS: showRMS }">
   </canvas>
 </template>
 
