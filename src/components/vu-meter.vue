@@ -10,7 +10,7 @@
 export default {
   name: 'vu-meter',
   props: {
-    value: {
+    amp: {
       type: Number,
       default: 0
     },
@@ -40,15 +40,15 @@ export default {
     }
   },
   computed: {
-    dBVal: function() {
-      return 20 * Math.log10(this.value);
+    dBAmp: function() {
+      return 20 * Math.log10(this.amp);
     },
     dBPeakVal: function() {
       return 20 * Math.log10(this.peakVal);
     }
   },
   watch: {
-    value: function(newVal, oldVal) {
+    amp: function(newVal, oldVal) {
       if (this.showPeaks) {
         var smoothingFactor = 50;
         if (newVal > this.peakVal) {
