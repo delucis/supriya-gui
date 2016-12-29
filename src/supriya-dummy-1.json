@@ -189,8 +189,8 @@
       "synthdef": "c1aa521afab5b0c0ce3d744690951649"
     }
   ],
-  "synthdefs": {
-    "da0982184cc8fa54cf9d288a0fe1f6ca": {
+  "synthdefs": [
+     {
       "hash": "da0982184cc8fa54cf9d288a0fe1f6ca",
       "name": "default",
       "parameters": {
@@ -238,5 +238,5 @@
         }
       }
     }
-  }
+  ]
 }
