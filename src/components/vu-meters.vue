@@ -20,7 +20,10 @@ export default {
     values: {
       type: Array,
       default: function () {
-          return [0, 0];
+          return [
+            {peak: 0, rms:0},
+            {peak: 0, rms:0}
+          ]
       }
     },
     name: {
