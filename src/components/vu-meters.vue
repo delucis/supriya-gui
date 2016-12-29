@@ -6,7 +6,9 @@
                 :rms="level.rms"
                 :clipSize="clipSize"
                 :width="width"
-                :height="height">
+                :height="height"
+                :showPeaks="showPeaks"
+                :showRMS="showRMS">
       </vu-meter>
     </div>
     <p v-if="name" v-text="prettyName"></p>
