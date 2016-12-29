@@ -45,6 +45,10 @@ export default {
     showPeaks: {
       type: Boolean,
       default: false
+    },
+    showRMS: {
+      type: Boolean,
+      default: false
     }
   },
   computed: {
