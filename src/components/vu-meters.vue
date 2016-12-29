@@ -2,7 +2,8 @@
   <div class="vu-meters">
     <div>
       <vu-meter v-for="value in values"
-                :value="value"
+                :amp="value.peak"
+                :rms="value.rms"
                 :clipSize="clipSize"
                 :width="width"
                 :height="height">
