@@ -58,7 +58,8 @@ setInterval(function(){
     if (store.state.server_meters.hasOwnProperty(meters)) {
       let newLevels = store.state.server_meters[meters]
       for (var i = 0; i < 2; i++) {
-        newLevels[i] = fakers.fauxdio()
+        let level = fakers.fauxdio()
+        newLevels[i] = { peak: level, rms: level/4 }
       }
       let newMeters = {
         [meters]: newLevels
