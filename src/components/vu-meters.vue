@@ -22,7 +22,7 @@ export default {
   props: {
     levels: {
       type: Array,
-      default: function () {
+      default () {
           return [
             {peak: 0, rms:0},
             {peak: 0, rms:0}
@@ -58,8 +58,8 @@ export default {
     }
   },
   computed: {
-    prettyName: function () {
-      return this.name.replace(/_/g, ' ');
+    prettyName () {
+      return this.name.replace(/_/g, ' ')
     }
   },
   components: {
