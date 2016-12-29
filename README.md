@@ -1,12 +1,12 @@
-# web-gui
+# supriya-gui
 
 Web GUI for [Supriya](http://supriya.mbrsi.org/).
 
 ## Install
 
 ``` bash
-git clone git@github.com:delucis/web-gui.git
-cd web-gui
+git clone git@github.com:delucis/supriya-gui.git
+cd supriya-gui
 npm install
 ```
 
