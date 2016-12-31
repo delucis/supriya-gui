@@ -1,13 +1,18 @@
 <template lang="html">
   <section class="server-node">
-    <header class="id">
-      {{node.node_id}}
+    <header class="node-bar">
+      <h1 class="id">{{node.node_id}}</h1>
+      <button v-on:click="showBody = !showBody" class="toggle">
+        {{ toggleIcon }}
+      </button>
     </header>
-    <ul v-if="hasControls" class="controls">
-      <li v-for="(value, key) in node.controls" v-text="key + ': ' + value"></li>
-    </ul>
-    <div v-if="hasChildren" class="children">
-      <server-node v-for="child_node in node.child_nodes" :node="child_node"></server-node>
+    <div v-show="showBody" class="node-body">
+      <ul v-if="hasControls" class="controls">
+        <li v-for="(value, key) in node.controls" v-text="key + ': ' + value"></li>
+      </ul>
+      <div v-if="hasChildren" class="children">
+        <server-node v-for="child_node in node.child_nodes" :node="child_node"></server-node>
+      </div>
     </div>
   </section>
 </template>
@@ -16,11 +21,18 @@
 export default {
   name: 'server-node',
   props: {
+    showBody: {
+      type: Boolean,
+      default: true
+    },
     node: {
       type: Object
     }
   },
   computed: {
+    toggleIcon () {
+      return this.showBody ? '–' : '+'
+    },
     hasChildren () {
       return this.node.hasOwnProperty('child_nodes')
     },
