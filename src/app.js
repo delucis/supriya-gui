@@ -1,5 +1,5 @@
 // import styling to normalize defaults across browsers
-require('normalize.css');
+import normalize from 'normalize.css'
 
 // import and set-up Vue
 import Vue from 'vue'
