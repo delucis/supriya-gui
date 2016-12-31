@@ -48,20 +48,41 @@ export default {
   margin: 0.5em;
   flex-grow: 1;
   // border: 1px solid rgba(0,0,0,0.5);
-  background-color: rgba(0,0,0,0.07);
-  .id {
+  background-color: rgba(0,0,0,0.05);
+  .node-bar {
+    display: flex;
+    justify-content: space-between;
     box-sizing: border-box;
     width: 100%;
-    background-color: rgba(0,0,0,0.4);
-    color: white;
+    background-color: rgba(0,0,0,0.1);
     // border-bottom: 1px solid rgba(0,0,0,0.5);
     font-size: 0.65em;
     font-weight: 900;
-    padding: 0.25em;
+    .id {
+      font-size: 1em;
+      line-height: 1.5;
+      padding: 0 0.25em;
+      margin: 0;
+    }
+    .toggle {
+      color: white;
+      background-color: rgba(0,0,0,0.3);
+      border: none;
+      font-size: 1em;
+      line-height: 1.5;
+      padding: 0 0.5em;
+      margin: 0 0 0 0.5em;
+      font-weight: 900;
+      cursor: pointer;
+      &:hover {
+        background-color: rgba(255,0,0,0.5);
+      }
+    }
   }
   .children {
     display: flex;
     flex-wrap: wrap;
+    align-items: flex-start;
   }
 }
 </style>
