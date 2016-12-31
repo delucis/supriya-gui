@@ -61,7 +61,7 @@ export default {
   bottom: 0;
   right: 0;
   width: 100%;
-  font-family: monospace;
+  font-feature-settings: "tnum" 1;
   line-height: 2;
   text-align: right;
   background: transparentize(black, 0.2);
