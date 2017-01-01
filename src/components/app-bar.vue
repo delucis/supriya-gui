@@ -11,8 +11,10 @@ export default {
 </script>
 
 <style lang="sass">
+@import "~styles/vars";
 #app-header {
-  background: lightgrey;
+  padding: 0 $spacing;
+  background: $oc-gray-2;
   line-height: 2;
 }
 </style>
