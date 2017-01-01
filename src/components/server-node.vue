@@ -44,18 +44,18 @@ export default {
 </script>
 
 <style lang="sass">
+@import "~styles/vars";
 .server-node {
-  margin: 0.5em;
+  margin: $spacing;
   flex-grow: 1;
-  // border: 1px solid rgba(0,0,0,0.5);
-  background-color: rgba(0,0,0,0.05);
+  background-color: $oc-gray-0;
+  box-shadow: 0 0 1em -0.5em $oc-gray-8;
   .node-bar {
     display: flex;
     justify-content: space-between;
     box-sizing: border-box;
     width: 100%;
-    background-color: rgba(0,0,0,0.1);
-    // border-bottom: 1px solid rgba(0,0,0,0.5);
+    background-color: $oc-gray-2;
     font-size: 0.65em;
     font-weight: 900;
     .id {
@@ -65,8 +65,8 @@ export default {
       margin: 0;
     }
     .toggle {
-      color: white;
-      background-color: rgba(0,0,0,0.3);
+      color: $text-primary;
+      background-color: transparent;
       border: none;
       font-size: 1em;
       line-height: 1.5;
@@ -75,7 +75,8 @@ export default {
       font-weight: 900;
       cursor: pointer;
       &:hover {
-        background-color: rgba(255,0,0,0.5);
+        color: $oc-gray-0;
+        background-color: $oc-red-5;
       }
     }
   }
