@@ -56,18 +56,26 @@ export default {
 </script>
 
 <style lang="sass">
+@import "~styles/vars";
+
+$bar-height: 2em;
+
+#app {
+  padding-bottom: $bar-height;
+}
+
 #server-status {
   position: fixed;
   bottom: 0;
   right: 0;
   width: 100%;
   font-feature-settings: "tnum" 1;
-  line-height: 2;
+  line-height: $bar-height;
   text-align: right;
-  background: transparentize(black, 0.2);
-  color: lime;
+  background: transparentize($oc-gray-9, 0);
+  color: $oc-green-3;
   span {
-    padding: 0 0.5em;
+    padding: 0 $spacing;
   }
 }
 </style>
