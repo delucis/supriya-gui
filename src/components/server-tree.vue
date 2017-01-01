@@ -19,7 +19,7 @@ export default {
 }
 </script>
 
-<style lang="css">
+<style lang="sass">
 .server-tree {
   display: flex;
   flex-wrap: wrap;

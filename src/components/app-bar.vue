@@ -10,7 +10,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="sass">
 #app-header {
   background: lightgrey;
   line-height: 2;
