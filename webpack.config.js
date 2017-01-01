@@ -46,6 +46,7 @@ module.exports = {
   },
   resolve: {
     alias: {
+      'styles': path.resolve(__dirname, './src/style/'),
       'vue$': 'vue/dist/vue.common.js'
     }
   },
