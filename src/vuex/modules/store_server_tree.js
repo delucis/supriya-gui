@@ -103,11 +103,11 @@ export default {
           for (var property in payload) {
             if (payload.hasOwnProperty(property)) {
               if (state.nodes[payload.node_id].hasOwnProperty(property)
-                  && typeof state.nodes[payload.node_id][property] !== typeof payload[propety])
+                  && typeof state.nodes[payload.node_id][property] !== typeof payload[property])
               {
                 console.error('update_server_tree_node(): “' + state.nodes[payload.node_id][property] + '” and “' + payload[property] + '” are of different types.')
               } else {
-                state.nodes[payload.node_id][property] = payload[propety]
+                Vue.set(state.nodes[payload.node_id], property, payload[property])
               }
             }
           }
