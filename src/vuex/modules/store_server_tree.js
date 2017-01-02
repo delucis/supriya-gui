@@ -115,7 +115,7 @@ export default {
           console.error('update_server_tree_node(): server_tree does not contain a node with id of “' + payload.node_id + '”. Use add_server_tree_node() instead.')
         }
       } else {
-        console.error('add_server_tree_node(): payload object must have node_id property.')
+        console.error('update_server_tree_node(): payload object must have node_id property.')
       }
     }
   }
