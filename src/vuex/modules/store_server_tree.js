@@ -117,6 +117,43 @@ export default {
       } else {
         console.error('update_server_tree_node(): payload object must have node_id property.')
       }
+    },
+    /**
+     * Set the controls values for a node in the server tree.
+     *
+     * @param {object} state - current state in store
+     * @param {object} payload - object representing updates to apply
+     * @param {object} payload.node_id - ID of node to update
+     * @param {object} payload.controls - object containing key-value pairs of controls to update
+     */
+    update_server_tree_node_controls (state, payload) {
+      if (payload.hasOwnProperty('node_id')) {
+        if (state.nodes.hasOwnProperty(payload.node_id)) {
+          if (payload.hasOwnProperty('controls')
+              && typeof payload.controls === 'object'
+              && payload.controls !== null)
+          {
+            if (state.nodes[payload.node_id].hasOwnProperty('controls')
+                && typeof state.nodes[payload.node_id].controls === 'object'
+                && state.nodes[payload.node_id].controls !== null)
+            {
+              for (var control in payload.controls) {
+                if (payload.controls.hasOwnProperty(control)) {
+                  Vue.set(state.nodes[payload.node_id].controls, control, payload.controls[control])
+                }
+              }
+            } else {
+              console.error('update_server_tree_node_controls(): server_tree node “' + payload.node_id + '” does not contain a valid “controls” object.')
+            }
+          } else {
+            console.error('update_server_tree_node_controls(): payload does not contain a valid “controls” object.')
+          }
+        } else {
+          console.error('update_server_tree_node_controls(): server_tree does not contain a node with id of “' + payload.node_id + '”.')
+        }
+      } else {
+        console.error('update_server_tree_node_controls(): payload object must have node_id property.')
+      }
     }
   }
 }
