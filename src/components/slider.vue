@@ -19,7 +19,6 @@
 </template>
 
 <script>
-// N.B. validation & defaults are currently BROKEN :-/ :-S
   export default {
     name: 'slider',
     props: {
