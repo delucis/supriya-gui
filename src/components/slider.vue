@@ -7,6 +7,7 @@
             type="range"
             :min="min"
             :max="max"
+            :step="step"
             :value="value"
             v-model.number="value">
     <output v-if="showValue"
