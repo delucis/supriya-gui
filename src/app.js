@@ -31,6 +31,9 @@ store.commit('update_server_meters', appData.server_meters)
 for (var i = 0; i < appData.server_tree.length; i++) {
   store.commit('add_server_tree_node', appData.server_tree[i])
 }
+for (var i = 0; i < appData.synthdefs.length; i++) {
+  store.commit('POST_SYNTHDEF', appData.synthdefs[i])
+}
 
 // import utilities for generating fake data
 import fakers from './utils/fakers.js'
