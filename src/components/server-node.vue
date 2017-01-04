@@ -48,16 +48,17 @@ export default {
 .server-node {
   margin: $spacing;
   flex-grow: 1;
-  background-color: $oc-gray-0;
-  box-shadow: 0 0 1em -0.5em $oc-gray-8;
+  background-color: $oc-gray-1;
+  @include module-shadow;
+  &.has-controls {
+    background-color: $oc-gray-0;
+  }
   .node-bar {
     display: flex;
     justify-content: space-between;
     box-sizing: border-box;
     width: 100%;
-    background-color: $oc-gray-2;
-    font-size: 0.65em;
-    font-weight: 900;
+    @include text-small;
     .id {
       font-size: 1em;
       line-height: 1.5;
