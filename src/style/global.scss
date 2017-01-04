@@ -7,4 +7,5 @@ body {
   background: $bg-primary;
   color: $text-primary;
   font-family: $font-stack;
+  @include text-body-1;
 }
