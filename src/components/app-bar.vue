@@ -16,7 +16,7 @@ export default {
   padding: $spacing;
   margin-bottom: $spacing;
   background: $oc-gray-1;
-  line-height: $line-height;
+  @include text-subheading;
   @include module-shadow;
 }
 </style>

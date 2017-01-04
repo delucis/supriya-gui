@@ -80,8 +80,7 @@ export default {
     margin: 0 1px;
   }
   figcaption {
-    font-size: $small-text;
-    line-height: $line-height/$small-text;
+    @include text-caption;
   }
 }
 </style>
