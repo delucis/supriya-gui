@@ -1,9 +1,11 @@
 <template>
   <div id="app">
     <app-bar></app-bar>
-    <server-tree :server_tree="server_tree"></server-tree>
-    <div style="display:flex">
-      <vu-meters v-for="(levels, key) in server_meters" :levels="levels" :name="key" showPeaks showRMS showName></vu-meters>
+    <div class="app-body">
+      <server-tree :server_tree="server_tree"></server-tree>
+      <div class="meters-wrapper">
+        <vu-meters v-for="(levels, key) in server_meters" :levels="levels" :name="key" showPeaks showRMS showName></vu-meters>
+      </div>
     </div>
     <server-status :status="server_status"></server-status>
   </div>
@@ -35,3 +37,16 @@ export default {
   }
 }
 </script>
+
+<style lang="sass">
+.app-body {
+  display: flex;
+  align-items: flex-start;
+}
+.meters-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+</style>
