@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="vu-meters">
+  <figure class="vu-meters">
     <div>
       <vu-meter v-for="level in levels"
                 :amp="level.peak"
@@ -11,8 +11,8 @@
                 :showRMS="showRMS">
       </vu-meter>
     </div>
-    <p v-if="showName && name" v-text="prettyName"></p>
-  </div>
+    <figcaption v-if="showName && name" v-text="prettyName"></figcaption>
+  </figure>
 </template>
 
 <script>
@@ -69,9 +69,19 @@ export default {
 </script>
 
 <style lang="sass">
+@import "~styles/vars";
 .vu-meters {
+  margin: $spacing;
+  padding: $spacing;
+  background: $oc-gray-1;
+  @include module-shadow;
+  text-align: center;
   .vu-meter {
     margin: 0 1px;
+  }
+  figcaption {
+    font-size: $small-text;
+    line-height: $line-height/$small-text;
   }
 }
 </style>
