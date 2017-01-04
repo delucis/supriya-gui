@@ -167,3 +167,4 @@ npm start
 
 - [socket.io](http://socket.io/) ([repo](https://github.com/socketio/socket.io))
   - Previous test repo: [socket-test](https://github.com/delucis/socket-test)
+  - Vue plugin: [vue-websocket](https://github.com/icebob/vue-websocket)
