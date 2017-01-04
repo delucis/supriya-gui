@@ -1,5 +1,5 @@
 <template lang="html">
-  <section class="server-node">
+  <section class="server-node" :class="{ 'has-controls': hasControls }">
     <header class="node-bar">
       <h1 class="id">{{node.node_id}}</h1>
       <button v-on:click="showBody = !showBody" class="toggle">
