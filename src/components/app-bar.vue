@@ -13,8 +13,10 @@ export default {
 <style lang="sass">
 @import "~styles/vars";
 #app-header {
-  padding: 0 $spacing;
-  background: $oc-gray-2;
-  line-height: 2;
+  padding: $spacing;
+  margin-bottom: $spacing;
+  background: $oc-gray-1;
+  line-height: $line-height;
+  @include module-shadow;
 }
 </style>
