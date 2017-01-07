@@ -179,6 +179,59 @@ export default {
   actions: {
     show_node (context, payload) {
       context.commit('show_node', payload)
+    },
+    show_nodes (context, payload) {
+      let show = payload.hasOwnProperty('show') ? payload.show : true
+      let nodes = show ? context.getters.unshownNodes : context.getters.shownNodes
+      for (var node in nodes) {
+        if (nodes.hasOwnProperty(node)) {
+          context.commit('show_node', {
+            node_id: node,
+            show: show
+          })
+        }
+      }
+    }
+  },
+  getters: {
+    shownNodes: state => {
+      let nodes = state.nodes
+      let shownNodes = {}
+      for (var node in nodes) {
+        if (nodes.hasOwnProperty(node)) {
+          if (nodes[node].showBody) {
+            shownNodes[node] = nodes[node]
+          }
+        }
+      }
+      return shownNodes
+    },
+    unshownNodes: state => {
+      let nodes = state.nodes
+      let unshownNodes = {}
+      for (var node in nodes) {
+        if (nodes.hasOwnProperty(node)) {
+          if (!nodes[node].showBody) {
+            unshownNodes[node] = nodes[node]
+          }
+        }
+      }
+      return unshownNodes
+    },
+    nodesCount: state => {
+      return Object.keys(state.nodes).length
+    },
+    shownNodesCount: (state, getters) => {
+      return Object.keys(getters.shownNodes).length
+    },
+    unshownNodesCount: (state, getters) => {
+      return Object.keys(getters.unshownNodes).length
+    },
+    isAllNodesShown: (state, getters) => {
+      return getters.shownNodesCount === getters.nodesCount
+    },
+    isNoNodesShown: (state, getters) => {
+      return getters.unshownNodesCount === getters.nodesCount
     }
   }
 }
