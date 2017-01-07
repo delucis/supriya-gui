@@ -154,6 +154,31 @@ export default {
       } else {
         console.error('update_server_tree_node_controls(): payload object must have node_id property.')
       }
+    },
+    /**
+     * Set whether a node is shown or hidden in the server tree.
+     *
+     * @param {object} state - current state in store
+     * @param {object} payload - object representing changes to apply
+     * @param {number} payload.node_id - ID of node to show/hide
+     * @param {boolean} [payload.show=true] - whether or not the node should be shown or not
+     */
+    show_node (state, payload) {
+      if (!payload.hasOwnProperty('node_id')) {
+        console.error('show_node(): payload object must have node_id property.')
+        return
+      }
+      if (!state.nodes.hasOwnProperty(payload.node_id)) {
+        console.error('show_node(): server_tree does not contain a node with id of “' + payload.node_id + '”.')
+        return
+      }
+      let show = payload.hasOwnProperty('show') ? payload.show : true
+      Vue.set(state.nodes[payload.node_id], 'showBody', show)
+    }
+  },
+  actions: {
+    show_node (context, payload) {
+      context.commit('show_node', payload)
     }
   }
 }
