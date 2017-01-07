@@ -2,7 +2,7 @@
   <section class="server-node" :class="{ 'has-controls': hasControls }">
     <header class="node-bar">
       <h1 class="id">{{node.node_id}}</h1>
-      <button v-on:click="showBody = !showBody" class="toggle">
+      <button v-on:click="toggleBodyShown" class="toggle">
         {{ toggleIcon }}
       </button>
     </header>
@@ -21,10 +21,6 @@
 export default {
   name: 'server-node',
   props: {
-    showBody: {
-      type: Boolean,
-      default: true
-    },
     node: {
       type: Object
     }
@@ -38,6 +34,17 @@ export default {
     },
     hasControls () {
       return this.node.hasOwnProperty('controls')
+    },
+    showBody () {
+      return this.node.hasOwnProperty('showBody') ? this.node.showBody : true
+    }
+  },
+  methods: {
+    toggleBodyShown (event) {
+      this.$store.dispatch('show_node', {
+        node_id: this.node.node_id,
+        show: !this.showBody
+      })
     }
   }
 }
