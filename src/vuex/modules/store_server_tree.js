@@ -165,13 +165,13 @@ export default {
      * @param {number} payload.node_id - ID of node to show/hide
      * @param {boolean} [payload.show=true] - whether or not the node should be shown or not
      */
-    show_node (state, payload) {
+    SHOW_NODE (state, payload) {
       if (!payload.hasOwnProperty('node_id')) {
-        console.error('show_node(): payload object must have node_id property.')
+        console.error('SHOW_NODE(): payload object must have node_id property.')
         return
       }
       if (!state.nodes.hasOwnProperty(payload.node_id)) {
-        console.error('show_node(): server_tree does not contain a node with id of “' + payload.node_id + '”.')
+        console.error('SHOW_NODE(): server_tree does not contain a node with id of “' + payload.node_id + '”.')
         return
       }
       let show = payload.hasOwnProperty('show') ? payload.show : true
@@ -180,14 +180,14 @@ export default {
   },
   actions: {
     show_node (context, payload) {
-      context.commit('show_node', payload)
+      context.commit('SHOW_NODE', payload)
     },
     show_nodes (context, payload) {
       let show = payload.hasOwnProperty('show') ? payload.show : true
       let nodes = show ? context.getters.unshownNodes : context.getters.shownNodes
       for (var node in nodes) {
         if (nodes.hasOwnProperty(node)) {
-          context.commit('show_node', {
+          context.commit('SHOW_NODE', {
             node_id: node,
             show: show
           })
