@@ -20,7 +20,7 @@ export default {
      * @param {number} payload.node_id - a unique ID for the new node
      * @param {number} payload.parent - the ID of the new node’s parent node (null if at root)
      *
-     * @see update_server_tree_node
+     * @see PATCH_NODE
      */
     POST_NODE (state, payload) {
       // alias payload for more reasonable code
@@ -40,7 +40,7 @@ export default {
       if (state.nodes.hasOwnProperty(node.node_id)
           || state.orphans.hasOwnProperty(node.node_id))
       {
-        console.error('POST_NODE(): server_tree already contains a node with id of “' + node.node_id + '”. Use update_server_tree_node() instead.')
+        console.error('POST_NODE(): server_tree already contains a node with id of “' + node.node_id + '”. Use PATCH_NODE() instead.')
         return
       }
       // Make sure node’s parent is in the nodes list, otherwise it is an orphan
@@ -99,13 +99,13 @@ export default {
      *
      * @see POST_NODE
      */
-    update_server_tree_node (state, payload) {
+    PATCH_NODE (state, payload) {
       if (!payload.hasOwnProperty('node_id')) {
-        console.error('update_server_tree_node(): payload object must have node_id property.')
+        console.error('PATCH_NODE(): payload object must have node_id property.')
         return
       }
       if (!state.nodes.hasOwnProperty(payload.node_id)) {
-        console.error('update_server_tree_node(): server_tree does not contain a node with id of “' + payload.node_id + '”. Use POST_NODE() instead.')
+        console.error('PATCH_NODE(): server_tree does not contain a node with id of “' + payload.node_id + '”. Use POST_NODE() instead.')
         return
       }
       for (var property in payload) {
@@ -113,7 +113,7 @@ export default {
           if (state.nodes[payload.node_id].hasOwnProperty(property)
               && typeof state.nodes[payload.node_id][property] !== typeof payload[property])
           {
-            console.error('update_server_tree_node(): “' + state.nodes[payload.node_id][property] + '” and “' + payload[property] + '” are of different types.')
+            console.error('PATCH_NODE(): “' + state.nodes[payload.node_id][property] + '” and “' + payload[property] + '” are of different types.')
           } else {
             Vue.set(state.nodes[payload.node_id], property, payload[property])
           }
