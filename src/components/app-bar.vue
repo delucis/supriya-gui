@@ -1,9 +1,9 @@
 <template>
-  <header class="app-header">
-    <h1 class="app-header__title">
+  <header class="app-bar">
+    <h1 class="app-bar__title">
       Supriya GUI
     </h1>
-    <div class="app-header__controls">
+    <div class="app-bar__controls">
       <button @click="showAll" :disabled="isAllNodesShown">
         <icon icon="visibility" :inactive="isAllNodesShown"></icon>
         Expand All Nodes
@@ -48,13 +48,13 @@ export default {
 
 <style lang="sass">
 @import "~styles/vars";
-.app-header {
+.app-bar {
   padding: $spacing;
   margin-bottom: $spacing;
   background: $oc-gray-1;
   display: flex;
   justify-content: space-between;
-  .app-header__title {
+  .app-bar__title {
     @include text-subheading;
     margin: 0;
   }
