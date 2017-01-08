@@ -20,25 +20,25 @@ export default {
      *
      * @see update_server_tree_node
      */
-    add_server_tree_node (state, payload) {
+    POST_NODE (state, payload) {
       // alias payload for more reasonable code
       let node = payload
       // make sure all conditions are met to add node to tree
       // Make sure node has a node_id property
       if (!node.hasOwnProperty('node_id')) {
-        console.error('add_server_tree_node(): payload object must have node_id property.')
+        console.error('POST_NODE(): payload object must have node_id property.')
         return
       }
       // Make sure node has a parent property (even if it’s null)
       if (!node.hasOwnProperty('parent')) {
-        console.error('add_server_tree_node(): payload object must have parent property.')
+        console.error('POST_NODE(): payload object must have parent property.')
         return
       }
       // Make sure node’s node_id is new, i.e. not already present in nodes or orphans
       if (state.nodes.hasOwnProperty(node.node_id)
           || state.orphans.hasOwnProperty(node.node_id))
       {
-        console.error('add_server_tree_node(): server_tree already contains a node with id of “' + node.node_id + '”. Use update_server_tree_node() instead.')
+        console.error('POST_NODE(): server_tree already contains a node with id of “' + node.node_id + '”. Use update_server_tree_node() instead.')
         return
       }
       // Make sure node’s parent is in the nodes list, otherwise it is an orphan
@@ -95,7 +95,7 @@ export default {
      * @param {object} state - current state in store
      * @param {object} payload - server tree node to update (must contain `node_id`)
      *
-     * @see add_server_tree_node
+     * @see POST_NODE
      */
     update_server_tree_node (state, payload) {
       if (payload.hasOwnProperty('node_id')) {
@@ -112,7 +112,7 @@ export default {
             }
           }
         } else {
-          console.error('update_server_tree_node(): server_tree does not contain a node with id of “' + payload.node_id + '”. Use add_server_tree_node() instead.')
+          console.error('update_server_tree_node(): server_tree does not contain a node with id of “' + payload.node_id + '”. Use POST_NODE() instead.')
         }
       } else {
         console.error('update_server_tree_node(): payload object must have node_id property.')

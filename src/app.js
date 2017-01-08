@@ -29,7 +29,7 @@ import appData from './supriya-dummy-1.json'
 store.commit('update_server_status', appData.server_status)
 store.commit('update_server_meters', appData.server_meters)
 for (var i = 0; i < appData.server_tree.length; i++) {
-  store.commit('add_server_tree_node', appData.server_tree[i])
+  store.commit('POST_NODE', appData.server_tree[i])
 }
 for (var i = 0; i < appData.synthdefs.length; i++) {
   store.commit('POST_SYNTHDEF', appData.synthdefs[i])
