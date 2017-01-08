@@ -54,10 +54,11 @@ export default {
   background: $oc-gray-1;
   display: flex;
   justify-content: space-between;
+  @include module-shadow;
+}
   .app-bar__title {
     @include text-subheading;
     margin: 0;
   }
-  @include module-shadow;
-}
+  .app-bar__controls {}
 </style>
