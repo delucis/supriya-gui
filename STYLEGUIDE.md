@@ -228,16 +228,24 @@ The Supriya GUI [Vuex](https://vuex.vuejs.org/en/) store is broken into modules
 in `vuex/modules/`, which are then assembled in `vuex/store.js`. Helper
 functions can be placed in `vuex/helpers/`.
 
+- Wherever it makes sense, mutations and actions should be named using HTTP
+  verbs:
+	- `POST` creates a new item in the store;
+	- `PUT` wholesale replaces an existing item in the store with the payload;
+	- `PATCH` changes any properties of an item in the store included in the
+	  payload, but preserves others;
+	- and `DELETE` removes an item from the store.
+
 - Mutations should be named using all uppercase and snake case:
 
   ```js
-  CHANGE_STATE (state, payload) {}
+  PATCH_STATE (state, payload) {}
   ```
 
 - Actions should be named using all lowercase and snake case:
 
   ```js
-  change_state (context) {}
+  patch_state (context) {}
   ```
 
 - Actions that simply wrap a mutation should have matching names:
