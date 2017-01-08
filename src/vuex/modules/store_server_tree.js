@@ -17,6 +17,8 @@ export default {
      *
      * @param {object} state - current state in store
      * @param {object} payload - a new server tree node (must contain `node_id`)
+     * @param {number} payload.node_id - a unique ID for the new node
+     * @param {number} payload.parent - the ID of the new node’s parent node (null if at root)
      *
      * @see update_server_tree_node
      */
