@@ -70,6 +70,12 @@ $font-weight-bold:         700;
   line-height: $line-height-small;
 }
 
+$icon-size-huge:          3rem;
+$icon-size-large:      2.25rem;
+$icon-size-medium:      1.5rem;
+$icon-size-small:     1.125rem;
+$icon-size-tiny:      0.875rem;
+
 $shadow-shade-1: transparentize($oc-gray-8, 0.86);
 $shadow-shade-2: transparentize($oc-gray-8, 0.88);
 $shadow-shade-3: transparentize($oc-gray-8, 0.8);
