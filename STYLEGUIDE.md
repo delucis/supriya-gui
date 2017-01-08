@@ -259,7 +259,7 @@ functions can be placed in `vuex/helpers/`.
     },
     actions: {
       increment_count (context) {
-        context.commit('increment_count')
+        context.commit('INCREMENT_COUNT')
       }
     }
   }
