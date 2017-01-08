@@ -100,24 +100,24 @@ export default {
      * @see POST_NODE
      */
     update_server_tree_node (state, payload) {
-      if (payload.hasOwnProperty('node_id')) {
-        if (state.nodes.hasOwnProperty(payload.node_id)) {
-          for (var property in payload) {
-            if (payload.hasOwnProperty(property)) {
-              if (state.nodes[payload.node_id].hasOwnProperty(property)
-                  && typeof state.nodes[payload.node_id][property] !== typeof payload[property])
-              {
-                console.error('update_server_tree_node(): “' + state.nodes[payload.node_id][property] + '” and “' + payload[property] + '” are of different types.')
-              } else {
-                Vue.set(state.nodes[payload.node_id], property, payload[property])
-              }
-            }
-          }
-        } else {
-          console.error('update_server_tree_node(): server_tree does not contain a node with id of “' + payload.node_id + '”. Use POST_NODE() instead.')
-        }
-      } else {
+      if (!payload.hasOwnProperty('node_id')) {
         console.error('update_server_tree_node(): payload object must have node_id property.')
+        return
+      }
+      if (!state.nodes.hasOwnProperty(payload.node_id)) {
+        console.error('update_server_tree_node(): server_tree does not contain a node with id of “' + payload.node_id + '”. Use POST_NODE() instead.')
+        return
+      }
+      for (var property in payload) {
+        if (payload.hasOwnProperty(property)) {
+          if (state.nodes[payload.node_id].hasOwnProperty(property)
+              && typeof state.nodes[payload.node_id][property] !== typeof payload[property])
+          {
+            console.error('update_server_tree_node(): “' + state.nodes[payload.node_id][property] + '” and “' + payload[property] + '” are of different types.')
+          } else {
+            Vue.set(state.nodes[payload.node_id], property, payload[property])
+          }
+        }
       }
     },
     /**
