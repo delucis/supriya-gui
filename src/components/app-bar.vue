@@ -1,5 +1,5 @@
 <template>
-  <header id="app-header">
+  <header class="app-header">
     <h1 class="app-header__title">
       Supriya GUI
     </h1>
@@ -48,7 +48,7 @@ export default {
 
 <style lang="sass">
 @import "~styles/vars";
-#app-header {
+.app-header {
   padding: $spacing;
   margin-bottom: $spacing;
   background: $oc-gray-1;
