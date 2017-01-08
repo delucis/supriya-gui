@@ -1,5 +1,3 @@
-// import styling to normalize defaults across browsers
-import normalize from 'normalize.css'
 import globalStyles  from './style/global.scss'
 
 // import and set-up Vue
