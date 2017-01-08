@@ -5,9 +5,11 @@
     </h1>
     <div class="app-header__controls">
       <button @click="showAll" :disabled="isAllNodesShown">
+        <icon icon="visibility" :inactive="isAllNodesShown"></icon>
         Expand All Nodes
       </button>
       <button @click="hideAll" :disabled="isNoNodesShown">
+        <icon icon="visibility_off" :inactive="isNoNodesShown"></icon>
         Collapse All Nodes
       </button>
     </div>
@@ -15,8 +17,12 @@
 </template>
 
 <script>
+import icon from './icon.vue'
 export default {
   name: 'app-bar',
+  components: {
+    icon
+  },
   computed: {
     isAllNodesShown () {
       return this.$store.getters.isAllNodesShown
