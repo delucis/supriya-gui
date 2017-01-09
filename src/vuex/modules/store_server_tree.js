@@ -170,6 +170,13 @@ export default {
       let show = payload.hasOwnProperty('show') ? payload.show : true
       Vue.set(state.nodes[payload.node_id], 'showBody', show)
     },
+    /**
+     * Move a node from state.nodes to state.orphans.
+     *
+     * @param {object} state - current state in store
+     * @param {object} payload
+     * @param {number} payload.node_id - ID of node to move
+     */
     ORPHAN_NODE (state, payload) {
       if (!payload.hasOwnProperty('node_id')) {
         console.error('ORPHAN_NODE(): payload object must have node_id property.')
@@ -184,6 +191,13 @@ export default {
       Vue.set(state.orphans, id, node)
       Vue.delete(state.nodes, id)
     },
+    /**
+     * Remove a node from state.nodes and state.tree.
+     *
+     * @param {object} state - current state in store
+     * @param {object} payload
+     * @param {number} payload.node_id - ID of node to remove
+     */
     DELETE_NODE (state, payload) {
       if (!payload.hasOwnProperty('node_id')) {
         console.error('DELETE_NODE(): payload object must have node_id property.')
@@ -201,6 +215,9 @@ export default {
     }
   },
   actions: {
+    /**
+     *
+     */
     post_node ({commit}, payload) {
       commit('POST_NODE', payload)
       commit('SHOW_NODE', {
