@@ -129,32 +129,22 @@ export default {
      * @param {object} payload.controls - object containing key-value pairs of controls to update
      */
     PATCH_NODE_CONTROLS (state, payload) {
-      if (payload.hasOwnProperty('node_id')) {
-        if (state.nodes.hasOwnProperty(payload.node_id)) {
-          if (payload.hasOwnProperty('controls')
-              && typeof payload.controls === 'object'
-              && payload.controls !== null)
-          {
-            if (state.nodes[payload.node_id].hasOwnProperty('controls')
-                && typeof state.nodes[payload.node_id].controls === 'object'
-                && state.nodes[payload.node_id].controls !== null)
-            {
-              for (var control in payload.controls) {
-                if (payload.controls.hasOwnProperty(control)) {
-                  Vue.set(state.nodes[payload.node_id].controls, control, payload.controls[control])
-                }
-              }
-            } else {
-              console.error('PATCH_NODE_CONTROLS(): server_tree node “' + payload.node_id + '” does not contain a valid “controls” object.')
-            }
-          } else {
-            console.error('PATCH_NODE_CONTROLS(): payload does not contain a valid “controls” object.')
-          }
-        } else {
-          console.error('PATCH_NODE_CONTROLS(): server_tree does not contain a node with id of “' + payload.node_id + '”.')
-        }
-      } else {
+      if (!payload.hasOwnProperty('node_id')) {
         console.error('PATCH_NODE_CONTROLS(): payload object must have node_id property.')
+      }
+      if (!state.nodes.hasOwnProperty(payload.node_id)) {
+        console.error('PATCH_NODE_CONTROLS(): server_tree does not contain a node with id of “' + payload.node_id + '”.')
+      }
+      if (!payload.hasOwnProperty('controls')
+          || typeof payload.controls !== 'object'
+          || payload.controls === null)
+      {
+        console.error('PATCH_NODE_CONTROLS(): payload does not contain a valid “controls” object.')
+      }
+      for (var control in payload.controls) {
+        if (payload.controls.hasOwnProperty(control)) {
+          Vue.set(state.nodes[payload.node_id].controls, control, payload.controls[control])
+        }
       }
     },
     /**
