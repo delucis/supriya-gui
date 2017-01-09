@@ -182,8 +182,8 @@ export default {
     patch_node_controls ({commit}, payload) {
       commit('PATCH_NODE_CONTROLS', payload)
     },
-    show_node (context, payload) {
-      context.commit('SHOW_NODE', payload)
+    show_node ({commit}, payload) {
+      commit('SHOW_NODE', payload)
     },
     show_nodes (context, payload) {
       let show = payload.hasOwnProperty('show') ? payload.show : true
