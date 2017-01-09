@@ -207,15 +207,22 @@ export default {
         console.error('DELETE_NODE(): payload object must have node_id property.')
         return
       }
-      if (!state.nodes.hasOwnProperty(payload.node_id)) {
+      if ( ! ( state.nodes.hasOwnProperty(payload.node_id)
+               || state.orphans.hasOwnProperty(payload.node_id) ) )
+      {
         console.error('DELETE_NODE(): server_tree does not contain a node with id of “' + payload.node_id + '”.')
         return
       }
-      // delete the node from its location in state.tree
-      let target = getTarget(state.tree, state.nodes[payload.node_id].breadcrumbs)
-      Vue.delete(target.child_nodes, payload.node_id)
-      // delete the node from state.nodes
-      Vue.delete(state.nodes, payload.node_id)
+      if (state.nodes.hasOwnProperty(payload.node_id)) {
+        // delete the node from its location in state.tree
+        let target = getTarget(state.tree, state.nodes[payload.node_id].breadcrumbs)
+        Vue.delete(target.child_nodes, payload.node_id)
+        // delete the node from state.nodes
+        Vue.delete(state.nodes, payload.node_id)
+      } else if (state.orphans.hasOwnProperty(payload.node_id)) {
+        // delete the node from state.tree
+        Vue.delete(state.orphans, payload.node_id)
+      }
     }
   },
   actions: {
