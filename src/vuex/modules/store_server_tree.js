@@ -179,6 +179,13 @@ export default {
     }
   },
   actions: {
+    post_node ({commit}, payload) {
+      commit('POST_NODE', payload)
+      commit('SHOW_NODE', {
+        node_id: payload.node_id,
+        show: payload.hasOwnProperty('showBody') ? payload.showBody : true
+      })
+    },
     show_node (context, payload) {
       context.commit('SHOW_NODE', payload)
     },
