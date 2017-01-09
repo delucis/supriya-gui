@@ -169,6 +169,35 @@ export default {
       }
       let show = payload.hasOwnProperty('show') ? payload.show : true
       Vue.set(state.nodes[payload.node_id], 'showBody', show)
+    },
+    ORPHAN_NODE (state, payload) {
+      if (!payload.hasOwnProperty('node_id')) {
+        console.error('ORPHAN_NODE(): payload object must have node_id property.')
+        return
+      }
+      if (!state.nodes.hasOwnProperty(payload.node_id)) {
+        console.error('ORPHAN_NODE(): server_tree does not contain a node with id of “' + payload.node_id + '”.')
+        return
+      }
+      let id = payload.node_id
+      let node = state.nodes[id]
+      Vue.set(state.orphans, id, node)
+      Vue.delete(state.nodes, id)
+    },
+    DELETE_NODE (state, payload) {
+      if (!payload.hasOwnProperty('node_id')) {
+        console.error('DELETE_NODE(): payload object must have node_id property.')
+        return
+      }
+      if (!state.nodes.hasOwnProperty(payload.node_id)) {
+        console.error('DELETE_NODE(): server_tree does not contain a node with id of “' + payload.node_id + '”.')
+        return
+      }
+      // delete the node from its location in state.tree
+      let target = getTarget(state.tree, state.nodes[payload.node_id].breadcrumbs)
+      Vue.delete(target.child_nodes, payload.node_id)
+      // delete the node from state.nodes
+      Vue.delete(state.nodes, payload.node_id)
     }
   },
   actions: {
