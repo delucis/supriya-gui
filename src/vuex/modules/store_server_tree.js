@@ -128,7 +128,7 @@ export default {
      * @param {object} payload.node_id - ID of node to update
      * @param {object} payload.controls - object containing key-value pairs of controls to update
      */
-    update_server_tree_node_controls (state, payload) {
+    PATCH_NODE_CONTROLS (state, payload) {
       if (payload.hasOwnProperty('node_id')) {
         if (state.nodes.hasOwnProperty(payload.node_id)) {
           if (payload.hasOwnProperty('controls')
@@ -145,16 +145,16 @@ export default {
                 }
               }
             } else {
-              console.error('update_server_tree_node_controls(): server_tree node “' + payload.node_id + '” does not contain a valid “controls” object.')
+              console.error('PATCH_NODE_CONTROLS(): server_tree node “' + payload.node_id + '” does not contain a valid “controls” object.')
             }
           } else {
-            console.error('update_server_tree_node_controls(): payload does not contain a valid “controls” object.')
+            console.error('PATCH_NODE_CONTROLS(): payload does not contain a valid “controls” object.')
           }
         } else {
-          console.error('update_server_tree_node_controls(): server_tree does not contain a node with id of “' + payload.node_id + '”.')
+          console.error('PATCH_NODE_CONTROLS(): server_tree does not contain a node with id of “' + payload.node_id + '”.')
         }
       } else {
-        console.error('update_server_tree_node_controls(): payload object must have node_id property.')
+        console.error('PATCH_NODE_CONTROLS(): payload object must have node_id property.')
       }
     },
     /**
