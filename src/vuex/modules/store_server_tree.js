@@ -131,15 +131,18 @@ export default {
     PATCH_NODE_CONTROLS (state, payload) {
       if (!payload.hasOwnProperty('node_id')) {
         console.error('PATCH_NODE_CONTROLS(): payload object must have node_id property.')
+        return
       }
       if (!state.nodes.hasOwnProperty(payload.node_id)) {
         console.error('PATCH_NODE_CONTROLS(): server_tree does not contain a node with id of “' + payload.node_id + '”.')
+        return
       }
       if (!payload.hasOwnProperty('controls')
           || typeof payload.controls !== 'object'
           || payload.controls === null)
       {
         console.error('PATCH_NODE_CONTROLS(): payload does not contain a valid “controls” object.')
+        return
       }
       for (var control in payload.controls) {
         if (payload.controls.hasOwnProperty(control)) {
