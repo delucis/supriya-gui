@@ -176,6 +176,9 @@ export default {
         show: payload.hasOwnProperty('showBody') ? payload.showBody : true
       })
     },
+    patch_node ({commit}, payload) {
+      commit('PATCH_NODE', payload)
+    },
     show_node (context, payload) {
       context.commit('SHOW_NODE', payload)
     },
