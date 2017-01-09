@@ -188,6 +188,10 @@ export default {
       }
       let id = payload.node_id
       let node = state.nodes[id]
+      // remove node from its location in state.tree
+      let target = getTarget(state.tree, node.breadcrumbs)
+      Vue.delete(target.child_nodes, id)
+      // move node from state.nodes to state.orphans
       Vue.set(state.orphans, id, node)
       Vue.delete(state.nodes, id)
     },
