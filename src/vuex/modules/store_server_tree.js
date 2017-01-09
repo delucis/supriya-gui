@@ -179,6 +179,9 @@ export default {
     patch_node ({commit}, payload) {
       commit('PATCH_NODE', payload)
     },
+    patch_node_controls ({commit}, payload) {
+      commit('PATCH_NODE_CONTROLS', payload)
+    },
     show_node (context, payload) {
       context.commit('SHOW_NODE', payload)
     },
