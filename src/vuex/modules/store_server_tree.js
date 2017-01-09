@@ -171,7 +171,7 @@ export default {
       Vue.set(state.nodes[payload.node_id], 'showBody', show)
     },
     /**
-     * Move a node from state.nodes to state.orphans.
+     * Move a node from state.nodes to state.orphans, and remove it from state.tree.
      *
      * @param {object} state - current state in store
      * @param {object} payload
@@ -196,7 +196,7 @@ export default {
       Vue.delete(state.nodes, id)
     },
     /**
-     * Remove a node from state.nodes and state.tree.
+     * Remove a node from state.orphans or from state.tree and state.nodes.
      *
      * @param {object} state - current state in store
      * @param {object} payload
