@@ -1,5 +1,7 @@
-// fakers.js
-// utilities for generating fake data to test state and UI changes
+/**
+ * Utilities for generating fake data to test state and UI changes.
+ * @module fakers
+ */
 
 let fakers = {}
 
@@ -7,12 +9,12 @@ let fakers = {}
  * Get a random value within upper and lower bounds.
  * Using its defaults, randomInRange() is effectively an alias for Math.random()
  *
- * @param {Object} opts - options object
- * @param {Number} [opts.min=0] - set lower bound of range
- * @param {Number} [opts.max=1] - set upper bound of range
- * @param {Boolean} [opts.int=false] - toggle integer output on/off
+ * @param {Object} $0 - options object
+ * @param {Number} [$0.min=0] - set lower bound of range
+ * @param {Number} [$0.max=1] - set upper bound of range
+ * @param {Boolean} [$0.int=false] - toggle integer output on/off
  *
- * @returns {Number} A random number between opts.min and opts.max. If opts.int is true, will be an integer.
+ * @returns {Number} A random number between min and max. If int is true, will be an integer.
  */
 fakers.randomInRange = function ({min = 0, max = 1, int = false} = {}) {
   if (min > max) {
@@ -29,11 +31,11 @@ fakers.randomInRange = function ({min = 0, max = 1, int = false} = {}) {
  * Randomly increment/decrement a given value by no more than a given step size.
  *
  * @param {Number} [oldVal=0] - given value to be altered
- * @param {Object} opts - options object
- * @param {Number} [opts.maxStep=1] - maximum deviation from oldVal permitted
- * @param {Boolean} [opts.int=false] - restrict steps to whole numbers, but does not round oldVal input
+ * @param {Object} $1 - options object
+ * @param {Number} [$1.maxStep=1] - maximum deviation from oldVal permitted
+ * @param {Boolean} [$1.int=false] - restrict steps to whole numbers, but does not round oldVal input
  *
- * @returns {Number} oldVal plus/minus a random step no larger than opts.maxStep.
+ * @returns {Number} oldVal plus/minus a random step no larger than maxStep.
  */
 fakers.randomStep = function (oldVal = 0, {maxStep = 1, int = false} = {}) {
   let step = fakers.randomInRange({min: maxStep * -1, max: maxStep, int: int})
@@ -45,13 +47,13 @@ fakers.randomStep = function (oldVal = 0, {maxStep = 1, int = false} = {}) {
  * Randomly increment/decrement a given value without exceeding upper and lower bounds.
  *
  * @param {Number} [oldVal=0] - given value to be altered
- * @param {Object} opts - options object
- * @param {Number} [opts.min=0] - set lower bound of range
- * @param {Number} [opts.max=1] - set upper bound of range
- * @param {Number} [opts.maxStep=1] - maximum deviation from oldVal permitted
- * @param {Boolean} [opts.int=false] - restrict steps to whole numbers, but does not round oldVal input
+ * @param {Object} $1 - options object
+ * @param {Number} [$1.min=0] - set lower bound of range
+ * @param {Number} [$1.max=1] - set upper bound of range
+ * @param {Number} [$1.maxStep=1] - maximum deviation from oldVal permitted
+ * @param {Boolean} [$1.int=false] - restrict steps to whole numbers, but does not round oldVal input
  *
- * @returns {Number} oldVal plus/minus a random step, limited between opts.min and opts.max. 
+ * @returns {Number} oldVal plus/minus a random step, limited between min and max.
  */
 fakers.wanderInRange = function (oldVal = 0, {min = 0, max = 1, maxStep = 1, int = false} = {}) {
   if (min > max) {
