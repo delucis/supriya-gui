@@ -185,12 +185,12 @@ export default {
     show_node ({commit}, payload) {
       commit('SHOW_NODE', payload)
     },
-    show_nodes (context, payload) {
+    show_nodes ({commit, getters}, payload) {
       let show = payload.hasOwnProperty('show') ? payload.show : true
-      let nodes = show ? context.getters.unshownNodes : context.getters.shownNodes
+      let nodes = show ? getters.unshownNodes : getters.shownNodes
       for (var node in nodes) {
         if (nodes.hasOwnProperty(node)) {
-          context.commit('SHOW_NODE', {
+          commit('SHOW_NODE', {
             node_id: node,
             show: show
           })
