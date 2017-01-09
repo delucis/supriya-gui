@@ -229,6 +229,29 @@ export default {
         }
       }
     },
+    orphan_node ({dispatch, commit, state}, payload) {
+      if (payload.hasOwnProperty('node_id')) {
+        dispatch('orphan_children', {
+          node_id: payload.node_id
+        })
+      }
+      commit('ORPHAN_NODE', payload)
+    },
+    orphan_children ({dispatch, commit, state}, payload) {
+      if (payload.hasOwnProperty('node_id')
+          && state.nodes.hasOwnProperty(payload.node_id)
+          && state.nodes[payload.node_id].hasOwnProperty('child_nodes'))
+      {
+        let childNodes = state.nodes[payload.node_id].child_nodes
+        for (var childNode in childNodes) {
+          if (childNodes.hasOwnProperty(childNode)) {
+            dispatch('orphan_node', {
+              node_id: childNodes[childNode].node_id
+            })
+          }
+        }
+      }
+    },
     delete_node ({dispatch, commit, state}, payload) {
       if (payload.hasOwnProperty('node_id')) {
         dispatch('delete_children', {
