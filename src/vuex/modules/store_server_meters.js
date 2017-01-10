@@ -4,8 +4,8 @@ import Vue from 'vue'
 export default {
   state: {
     "input_meter_levels": [
-      { "peak": 0.031249552965164185, "rms": 0.010318668559193611 },
-      { "peak": 0.031249552965164185, "rms": 0.010318668559193611 },
+      { "peak": 0.0,                  "rms": 0.0                  },
+      { "peak": 0.0,                  "rms": 0.0                  },
       { "peak": 0.0,                  "rms": 0.0                  },
       { "peak": 0.0,                  "rms": 0.0                  },
       { "peak": 0.0,                  "rms": 0.0                  },
@@ -14,8 +14,8 @@ export default {
       { "peak": 0.0,                  "rms": 0.0                  }
     ],
     "output_meter_levels": [
-      { "peak": 0.16099141538143158,  "rms": 0.04269769415259361  },
-      { "peak": 0.1611536592245102,   "rms": 0.042732998728752136 },
+      { "peak": 0.0,                  "rms": 0.0                  },
+      { "peak": 0.0,                  "rms": 0.0                  },
       { "peak": 0.0,                  "rms": 0.0                  },
       { "peak": 0.0,                  "rms": 0.0                  },
       { "peak": 0.0,                  "rms": 0.0                  },
