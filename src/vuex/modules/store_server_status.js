@@ -39,5 +39,10 @@ export default {
         }
       }
     }
+  },
+  actions: {
+    patch_server_status ({commit}, payload) {
+      commit('PATCH_SERVER_STATUS', payload)
+    }
   }
 }
