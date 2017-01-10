@@ -25,7 +25,7 @@ export default {
     ]
   },
   mutations: {
-    update_server_meters (state, payload) {
+    PATCH_SERVER_METERS (state, payload) {
       for (var property in payload) {
         if (payload.hasOwnProperty(property)
             && state.hasOwnProperty(property)
@@ -35,7 +35,7 @@ export default {
             Vue.set(state[property], i, payload[property][i])
           }
         } else {
-          console.error('update_server_meters(): Unknown server meters “' + property + '”.');
+          console.error('PATCH_SERVER_METERS(): Unknown server meters “' + property + '”.');
         }
       }
     }

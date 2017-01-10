@@ -25,7 +25,7 @@ import appData from './supriya-dummy-1.json'
 
 // commit dummy data to store for testing
 store.commit('update_server_status', appData.server_status)
-store.commit('update_server_meters', appData.server_meters)
+store.commit('PATCH_SERVER_METERS', appData.server_meters)
 for (var i = 0; i < appData.server_tree.length; i++) {
   store.dispatch('post_node', appData.server_tree[i])
 }
@@ -66,7 +66,7 @@ setInterval(function(){
       let newMeters = {
         [meters]: newLevels
       }
-      store.commit('update_server_meters', newMeters)
+      store.commit('PATCH_SERVER_METERS', newMeters)
     }
   }
 }, 1000)
