@@ -25,6 +25,18 @@ export default {
     ]
   },
   mutations: {
+    /**
+     * Update blocks of server meters.
+     *
+     * @param {Object} state - current state in store
+     * @param {Object} payload - server meters object to update
+     * @param {Object[]} [payload.input_meter_levels] - array of peak & RMS values
+     * @param {Number} [payload.input_meter_levels[].peak]
+     * @param {Number} [payload.input_meter_levels[].rms]
+     * @param {Object[]} [payload.output_meter_levels] - array of peak & RMS values
+     * @param {Number} [payload.output_meter_levels[].peak]
+     * @param {Number} [payload.output_meter_levels[].rms]
+     */
     PATCH_SERVER_METERS (state, payload) {
       for (var property in payload) {
         if (payload.hasOwnProperty(property)
