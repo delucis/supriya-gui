@@ -39,5 +39,10 @@ export default {
         }
       }
     }
+  },
+  actions: {
+    patch_server_meters ({commit}, payload) {
+      commit('PATCH_SERVER_METERS', payload)
+    }
   }
 }
