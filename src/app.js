@@ -24,7 +24,7 @@ new Vue({
 import appData from './supriya-dummy-1.json'
 
 // commit dummy data to store for testing
-store.commit('update_server_status', appData.server_status)
+store.commit('PATCH_SERVER_STATUS', appData.server_status)
 store.commit('PATCH_SERVER_METERS', appData.server_meters)
 for (var i = 0; i < appData.server_tree.length; i++) {
   store.dispatch('post_node', appData.server_tree[i])
@@ -44,7 +44,7 @@ setInterval(function(){
     average_cpu_usage: nuAvgCPU,
     peak_cpu_usage: nuAvgCPU > peakCPU ? nuAvgCPU : peakCPU
   }
-  store.commit('update_server_status', nuStatus)
+  store.commit('PATCH_SERVER_STATUS', nuStatus)
 }, 100)
 setInterval(function(){
   let nuStatus = {
@@ -52,7 +52,7 @@ setInterval(function(){
     synth_count: fakers.wanderInRange(store.state.server_status.synth_count, {max: 100, maxStep: 2, int: true}),
     group_count: fakers.wanderInRange(store.state.server_status.group_count, {max: 30, maxStep: 1, int: true})
   }
-  store.commit('update_server_status', nuStatus)
+  store.commit('PATCH_SERVER_STATUS', nuStatus)
 }, 3256)
 
 setInterval(function(){

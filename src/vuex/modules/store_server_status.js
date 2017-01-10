@@ -13,7 +13,7 @@ export default {
     ugen_count: 0
   },
   mutations: {
-    update_server_status (state, payload) {
+    PATCH_SERVER_STATUS (state, payload) {
       for (var property in payload) {
         if (payload.hasOwnProperty(property)
             && state.hasOwnProperty(property)
@@ -21,7 +21,7 @@ export default {
         {
           Vue.set(state, property, payload[property])
         } else {
-          console.error('update_server_status(): Unknown server status property “' + property + '”.');
+          console.error('PATCH_SERVER_STATUS(): Unknown server status property “' + property + '”.');
         }
       }
     }
