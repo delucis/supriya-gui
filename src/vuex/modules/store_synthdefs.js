@@ -5,9 +5,13 @@
 
 import Vue from 'vue'
 
-export default  {
-  state: {},
-  mutations: {
+let store_synthdefs = {}
+
+store_synthdefs.state = {}
+
+/** Mutations for store_synthdefs Vuex module. */
+store_synthdefs.mutations = {}
+
     /**
      * Add a new synthdef to the store, and index it by its unique hash.
      *
@@ -17,7 +21,7 @@ export default  {
      * @param {string} payload.name - human-readable name
      * @param {object} payload.parameters - object containing definitions of the synthdef’s parameters
      */
-    POST_SYNTHDEF (state, payload) {
+    store_synthdefs.mutations.POST_SYNTHDEF = function (state, payload) {
       let synthdef = payload
       if (!synthdef.hasOwnProperty('hash')) {
         console.error('POST_SYNTHDEF(): synthdef payload does not contain a hash property.')
@@ -29,7 +33,8 @@ export default  {
       }
       Vue.set(state, synthdef.hash, synthdef)
       return { status: 201, data: { url: '/synthdefs/' + synthdef.hash } }
-    },
+    }
+
     /**
      * Update a synthdef in the store indexed by its unique hash.
      *
@@ -39,7 +44,7 @@ export default  {
      * @param {string} payload.name - human-readable name
      * @param {object} payload.parameters - object containing definitions of the synthdef’s parameters
      */
-    PUT_SYNTHDEF (state, payload) {
+    store_synthdefs.mutations.PUT_SYNTHDEF = function (state, payload) {
       let synthdef = payload
       if (!synthdef.hasOwnProperty('hash')) {
         console.error('PUT_SYNTHDEF(): synthdef payload does not contain a hash property.')
@@ -51,14 +56,15 @@ export default  {
       }
       Vue.set(state, synthdef.hash, synthdef)
       return { status: 200, data: { url: '/synthdefs/' + synthdef.hash } }
-    },
+    }
+
     /**
      * Delete a synthdef in the store by its hash index.
      *
      * @param {object} state - current state in store
      * @param {string} payload - a synthdef hash
      */
-    DELETE_SYNTHDEF (state, payload) {
+    store_synthdefs.mutations.DELETE_SYNTHDEF = function (state, payload) {
       if (typeof payload !== 'string') {
         console.error('DELETE_SYNTHDEF(): payload must be a string.')
         return { status: 404 }
@@ -70,5 +76,5 @@ export default  {
       Vue.delete(state[payload])
       return { status: 200, data: null }
     }
-  }
-}
+
+export default store_synthdefs

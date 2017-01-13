@@ -5,9 +5,9 @@
 
 import Vue from 'vue'
 
-// create a Vuex store module to hold audio meters data from server
-export default {
-  state: {
+let store_server_meters = {}
+
+store_server_meters.state = {
     "input_meter_levels": [
       { "peak": 0.0,                  "rms": 0.0                  },
       { "peak": 0.0,                  "rms": 0.0                  },
@@ -28,8 +28,11 @@ export default {
       { "peak": 0.0,                  "rms": 0.0                  },
       { "peak": 0.0,                  "rms": 0.0                  }
     ]
-  },
-  mutations: {
+  }
+
+/** Mutations for store_server_meters Vuex module. */
+store_server_meters.mutations = {}
+
     /**
      * Update blocks of server meters.
      *
@@ -42,7 +45,7 @@ export default {
      * @param {Number} [payload.output_meter_levels[].peak]
      * @param {Number} [payload.output_meter_levels[].rms]
      */
-    PATCH_SERVER_METERS (state, payload) {
+    store_server_meters.mutations.PATCH_SERVER_METERS = function(state, payload) {
       for (var property in payload) {
         if (payload.hasOwnProperty(property)
             && state.hasOwnProperty(property)
@@ -56,10 +59,19 @@ export default {
         }
       }
     }
-  },
-  actions: {
-    patch_server_meters ({commit}, payload) {
+
+/** Actions for store_server_meters Vuex module. */
+store_server_meters.actions = {}
+
+    /**
+     * Commit a PATCH_SERVER_METERS mutation.
+     *
+     * @param {Object} $0 - context passed by the Vuex.dispatch() method.
+     * @param {Object} $0.commit - the Vuex.commit() method
+     * @param {Object} payload - object containing server meters object to update.
+     */
+    store_server_meters.actions.patch_server_meters = function ({commit}, payload) {
       commit('PATCH_SERVER_METERS', payload)
     }
-  }
-}
+
+export default store_server_meters

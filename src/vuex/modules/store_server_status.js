@@ -5,9 +5,9 @@
 
 import Vue from 'vue'
 
-// create a Vuex store module to hold server status data
-export default {
-  state: {
+let store_server_status = {}
+
+store_server_status.state = {
     actual_sample_rate: 44100.,
     average_cpu_usage: 0,
     group_count: 0,
@@ -16,8 +16,11 @@ export default {
     synthdef_count: 0,
     target_sample_rate: 44100.,
     ugen_count: 0
-  },
-  mutations: {
+  }
+
+/** Mutations for store_server_status Vuex module. */
+store_server_status.mutations = {}
+
     /**
      * Update some or all of the server status values.
      *
@@ -32,7 +35,7 @@ export default {
      * @param {Number} [payload.target_sample_rate] - The sample rate the server is aiming to run at.
      * @param {Number} [payload.ugen_count] - The number of ugens (unit generators) in the server’s network.
      */
-    PATCH_SERVER_STATUS (state, payload) {
+    store_server_status.mutations.PATCH_SERVER_STATUS = function (state, payload) {
       for (var property in payload) {
         if (payload.hasOwnProperty(property)
             && state.hasOwnProperty(property)
@@ -44,8 +47,10 @@ export default {
         }
       }
     }
-  },
-  actions: {
+
+/** Actions for store_server_status Vuex module. */
+store_server_status.actions = {}
+
     /**
      * Commits a {@link PATCH_SERVER_STATUS} mutation.
      *
@@ -53,8 +58,8 @@ export default {
      * @param {Object} $0.commit - the Vuex.commit() method
      * @param {Object} payload - object containing key-value pairs of status values to update, see {@link PATCH_SERVER_STATUS}
      */
-    patch_server_status ({commit}, payload) {
+    store_server_status.actions.patch_server_status = function ({commit}, payload) {
       commit('PATCH_SERVER_STATUS', payload)
     }
-  }
-}
+
+export default store_server_status

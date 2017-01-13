@@ -8,15 +8,19 @@ import getBreadcrumbs from './../helpers/getBreadcrumbs.js'
 import getTarget from './../helpers/getTarget.js'
 
 // define a Vuex store module to handle server tree state
-export default {
-  state: {
-    nodes: {},
-    orphans: {},
-    tree: {
-      child_nodes: {}
-    }
-  },
-  mutations: {
+let store_server_tree = {}
+
+store_server_tree.state = {
+  nodes: {},
+  orphans: {},
+  tree: {
+    child_nodes: {}
+  }
+}
+
+/** Mutations for store_server_tree Vuex module. */
+store_server_tree.mutations = {}
+
     /**
      * Adds a new node to the server tree. Errors if `node_id` already exists.
      *
@@ -27,7 +31,7 @@ export default {
      *
      * @see PATCH_NODE
      */
-    POST_NODE (state, payload) {
+    store_server_tree.mutations.POST_NODE = function (state, payload) {
       // alias payload for more reasonable code
       let node = payload
       // make sure all conditions are met to add node to tree
@@ -94,7 +98,8 @@ export default {
           }
         }
       }
-    },
+    }
+
     /**
      * Updates an existing node in the server tree. Errors if `node_id` doesn’t exist.
      * Updated properties must match in type. Adding properties to nodes is permitted.
@@ -104,7 +109,7 @@ export default {
      *
      * @see POST_NODE
      */
-    PATCH_NODE (state, payload) {
+    store_server_tree.mutations.PATCH_NODE = function (state, payload) {
       if (!payload.hasOwnProperty('node_id')) {
         console.error('PATCH_NODE(): payload object must have node_id property.')
         return
@@ -124,7 +129,8 @@ export default {
           }
         }
       }
-    },
+    }
+
     /**
      * Set the controls values for a node in the server tree.
      *
@@ -133,7 +139,7 @@ export default {
      * @param {object} payload.node_id - ID of node to update
      * @param {object} payload.controls - object containing key-value pairs of controls to update
      */
-    PATCH_NODE_CONTROLS (state, payload) {
+    store_server_tree.mutations.PATCH_NODE_CONTROLS = function (state, payload) {
       if (!payload.hasOwnProperty('node_id')) {
         console.error('PATCH_NODE_CONTROLS(): payload object must have node_id property.')
         return
@@ -154,7 +160,8 @@ export default {
           Vue.set(state.nodes[payload.node_id].controls, control, payload.controls[control])
         }
       }
-    },
+    }
+
     /**
      * Set whether a node is shown or hidden in the server tree.
      *
@@ -163,7 +170,7 @@ export default {
      * @param {number} payload.node_id - ID of node to show/hide
      * @param {boolean} [payload.show=true] - whether or not the node should be shown or not
      */
-    SHOW_NODE (state, payload) {
+    store_server_tree.mutations.SHOW_NODE = function (state, payload) {
       if (!payload.hasOwnProperty('node_id')) {
         console.error('SHOW_NODE(): payload object must have node_id property.')
         return
@@ -174,7 +181,8 @@ export default {
       }
       let show = payload.hasOwnProperty('show') ? payload.show : true
       Vue.set(state.nodes[payload.node_id], 'showBody', show)
-    },
+    }
+
     /**
      * Move a node from state.nodes to state.orphans, and remove it from state.tree.
      *
@@ -182,7 +190,7 @@ export default {
      * @param {object} payload
      * @param {number} payload.node_id - ID of node to move
      */
-    ORPHAN_NODE (state, payload) {
+    store_server_tree.mutations.ORPHAN_NODE = function (state, payload) {
       if (!payload.hasOwnProperty('node_id')) {
         console.error('ORPHAN_NODE(): payload object must have node_id property.')
         return
@@ -199,7 +207,8 @@ export default {
       // move node from state.nodes to state.orphans
       Vue.set(state.orphans, id, node)
       Vue.delete(state.nodes, id)
-    },
+    }
+
     /**
      * Remove a node from state.orphans or from state.tree and state.nodes.
      *
@@ -207,7 +216,7 @@ export default {
      * @param {object} payload
      * @param {number} payload.node_id - ID of node to remove
      */
-    DELETE_NODE (state, payload) {
+    store_server_tree.mutations.DELETE_NODE = function (state, payload) {
       if (!payload.hasOwnProperty('node_id')) {
         console.error('DELETE_NODE(): payload object must have node_id property.')
         return
@@ -229,8 +238,10 @@ export default {
         Vue.delete(state.orphans, payload.node_id)
       }
     }
-  },
-  actions: {
+
+/** Actions for store_server_tree Vuex module. */
+store_server_tree.actions = {}
+
     /**
      * Commits a POST_NODE() mutation with the node provided in the payload.
      * Also, commits a SHOW_NODE() mutation ensuring node.showBody will be set.
@@ -245,13 +256,14 @@ export default {
      * @see POST_NODE
      * @see SHOW_NODE
      */
-    post_node ({commit}, payload) {
+    store_server_tree.actions.post_node = function ({commit}, payload) {
       commit('POST_NODE', payload)
       commit('SHOW_NODE', {
         node_id: payload.node_id,
         show: payload.hasOwnProperty('showBody') ? payload.showBody : true
       })
-    },
+    }
+
     /**
      * Commits a PATCH_NODE() mutation.
      *
@@ -262,9 +274,10 @@ export default {
      *
      * @see post_node
      */
-    patch_node ({commit}, payload) {
+    store_server_tree.actions.patch_node = function ({commit}, payload) {
       commit('PATCH_NODE', payload)
-    },
+    }
+
     /**
      * Commits a PATCH_NODE_CONTROLS() mutation.
      *
@@ -276,9 +289,10 @@ export default {
      *
      * @see PATCH_NODE_CONTROLS
      */
-    patch_node_controls ({commit}, payload) {
+    store_server_tree.actions.patch_node_controls = function ({commit}, payload) {
       commit('PATCH_NODE_CONTROLS', payload)
-    },
+    }
+
     /**
      * Commits a SHOW_NODE() mutation.
      *
@@ -290,9 +304,10 @@ export default {
      *
      * @see SHOW_NODE
      */
-    show_node ({commit}, payload) {
+    store_server_tree.actions.show_node = function ({commit}, payload) {
       commit('SHOW_NODE', payload)
-    },
+    }
+
     /**
      * Commit SHOW_NODE() mutations to set all or no nodes to be shown.
      *
@@ -304,7 +319,7 @@ export default {
      *
      * @see SHOW_NODE
      */
-    show_nodes ({commit, getters}, payload) {
+    store_server_tree.actions.show_nodes = function ({commit, getters}, payload) {
       let show = payload.hasOwnProperty('show') ? payload.show : true
       let nodes = show ? getters.unshownNodes : getters.shownNodes
       for (var node in nodes) {
@@ -315,7 +330,8 @@ export default {
           })
         }
       }
-    },
+    }
+
     /**
      * Commit an ORPHAN_NODE() mutation to orphan the specified node, and also
      * commit ORPHAN_NODE() mutations to orphan all of that node’s children.
@@ -330,14 +346,15 @@ export default {
      * @see orphan_children
      * @see ORPHAN_NODE
      */
-    orphan_node ({dispatch, commit, state}, payload) {
+    store_server_tree.actions.orphan_node = function ({dispatch, commit, state}, payload) {
       if (payload.hasOwnProperty('node_id')) {
         dispatch('orphan_children', {
           node_id: payload.node_id
         })
       }
       commit('ORPHAN_NODE', payload)
-    },
+    }
+
     /**
      * Commit ORPHAN_NODE() mutations to orphan all of a given node’s children.
      *
@@ -351,7 +368,7 @@ export default {
      * @see orphan_node
      * @see ORPHAN_NODE
      */
-    orphan_children ({dispatch, commit, state}, payload) {
+    store_server_tree.actions.orphan_children = function ({dispatch, commit, state}, payload) {
       if (payload.hasOwnProperty('node_id')
           && state.nodes.hasOwnProperty(payload.node_id)
           && state.nodes[payload.node_id].hasOwnProperty('child_nodes'))
@@ -365,7 +382,8 @@ export default {
           }
         }
       }
-    },
+    }
+
     /**
      * Commit a DELETE_NODE() mutation to delete the specified node, and also
      * commit DELETE_NODE() mutations to delete all of that node’s children.
@@ -380,14 +398,15 @@ export default {
      * @see delete_children
      * @see DELETE_NODE
      */
-    delete_node ({dispatch, commit, state}, payload) {
+    store_server_tree.actions.delete_node = function ({dispatch, commit, state}, payload) {
       if (payload.hasOwnProperty('node_id')) {
         dispatch('delete_children', {
           node_id: payload.node_id
         })
       }
       commit('DELETE_NODE', payload)
-    },
+    }
+
     /**
      * Commit DELETE_NODE() mutations to delete all of a given node’s children.
      *
@@ -401,7 +420,7 @@ export default {
      * @see delete_node
      * @see DELETE_NODE
      */
-    delete_children ({dispatch, commit, state}, payload) {
+    store_server_tree.actions.delete_children = function ({dispatch, commit, state}, payload) {
       if (payload.hasOwnProperty('node_id')
           && state.nodes.hasOwnProperty(payload.node_id)
           && state.nodes[payload.node_id].hasOwnProperty('child_nodes'))
@@ -416,10 +435,18 @@ export default {
         }
       }
     }
-  },
-  getters: {
-    shownNodes: state => {
-      let nodes = state.nodes
+
+/** Getters for store_server_tree Vuex module. */
+store_server_tree.getters = {}
+
+    /**
+     * Gets all the nodes whose showBody property is currently true.
+     *
+     * @param {Object} $0 - current state in store
+     * @param {Object} $0.nodes - nodes object in state
+     * @returns {Object} An object containing nodes whose bodyShow property is true.
+     */
+    store_server_tree.getters.shownNodes = ({nodes}) => {
       let shownNodes = {}
       for (var node in nodes) {
         if (nodes.hasOwnProperty(node)) {
@@ -429,9 +456,16 @@ export default {
         }
       }
       return shownNodes
-    },
-    unshownNodes: state => {
-      let nodes = state.nodes
+    }
+
+    /**
+     * Gets all the nodes whose showBody property is currently false.
+     *
+     * @param {Object} $0 - current state in store
+     * @param  {Object} $0.nodes - nodes object in state
+     * @returns {Object} An object containing nodes whose bodyShow property is false.
+     */
+    store_server_tree.getters.unshownNodes = ({nodes}) => {
       let unshownNodes = {}
       for (var node in nodes) {
         if (nodes.hasOwnProperty(node)) {
@@ -441,21 +475,66 @@ export default {
         }
       }
       return unshownNodes
-    },
-    nodesCount: state => {
-      return Object.keys(state.nodes).length
-    },
-    shownNodesCount: (state, getters) => {
-      return Object.keys(getters.shownNodes).length
-    },
-    unshownNodesCount: (state, getters) => {
-      return Object.keys(getters.unshownNodes).length
-    },
-    isAllNodesShown: (state, getters) => {
-      return getters.shownNodesCount === getters.nodesCount
-    },
-    isNoNodesShown: (state, getters) => {
-      return getters.unshownNodesCount === getters.nodesCount
     }
-  }
-}
+
+    /**
+     * Gets the number of nodes currently in the server tree.
+     *
+     * * @param {Object} $0 - current state in store
+     * @param  {Object} $0.nodes - nodes object in state
+     * @return {Number} Number of nodes in state.nodes.
+     */
+    store_server_tree.getters.nodesCount = ({nodes}) => {
+      return Object.keys(nodes).length
+    }
+
+    /**
+     * Gets the number of nodes with showBody set to true.
+     *
+     * @param {Object} state - current state in store
+     * @param {Object} $1.shownNodes - the value of the showNodes getter
+     * @returns {Number} Number of nodes with showBody set to true.
+     */
+    store_server_tree.getters.shownNodesCount = (state, {shownNodes}) => {
+      return Object.keys(shownNodes).length
+    }
+
+    /**
+     * Gets the number of nodes with showBody set to false.
+     *
+     * @param  {Object} state - current state in store
+     * @param {Object} $1 - the module’s getters object
+     * @param  {Object} $1.unshownNodes - the value of the unshownNodes getter
+     * @return {Number} Number of nodes with showBody set to false.
+     */
+    store_server_tree.getters.unshownNodesCount = (state, {unshownNodes}) => {
+      return Object.keys(unshownNodes).length
+    }
+
+    /**
+     * Gets whether or not all nodes are currently shown.
+     *
+     * @param  {Oject} state - current state in store
+     * @param {Object} $1 - the module’s getters object
+     * @param  {Number} $1.shownNodesCount - the value of the shownNodesCount getter
+     * @param  {Number} $1.nodesCount - the value of the nodesCount getter
+     * @return {Boolean} True if the number of shown nodes equals the total number of nodes.
+     */
+    store_server_tree.getters.isAllNodesShown = (state, {shownNodesCount, nodesCount}) => {
+      return shownNodesCount === nodesCount
+    }
+
+    /**
+     * Gets whether or not all nodes are currently unshown.
+     *
+     * @param  {Oject} state - current state in store
+     * @param {Object} $1 - the module’s getters object
+     * @param  {Number} $1.unshownNodesCount - the value of the unshownNodesCount getter
+     * @param  {Number} $1.nodesCount - the value of the nodesCount getter
+     * @return {Boolean} True if the number of unshown nodes equals the total number of nodes.
+     */
+    store_server_tree.getters.isNoNodesShown = (state, {unshownNodesCount, nodesCount}) => {
+      return unshownNodesCount === nodesCount
+    }
+
+export default store_server_tree
