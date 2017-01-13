@@ -42,7 +42,7 @@ let server_tree_getters = {}
     /**
      * Gets the number of nodes currently in the server tree.
      *
-     * * @param {Object} $0 - current state in store
+     * @param {Object} $0 - current state in store
      * @param  {Object} $0.nodes - nodes object in state
      * @return {Number} Number of nodes in state.nodes.
      */
