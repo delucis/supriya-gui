@@ -3,7 +3,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 Vue.use(Vuex)
 
-import store_server_status from './modules/store_server_status.js'
+import store_server_status from './modules/server_status/module.js'
 import store_server_meters from './modules/server_meters/module.js'
 import store_server_tree   from './modules/store_server_tree.js'
 import store_synthdefs     from './modules/store_synthdefs.js'
