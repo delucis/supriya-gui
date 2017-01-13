@@ -5,8 +5,8 @@ let server_tree_actions = {}
      * Commits a POST_NODE() mutation with the node provided in the payload.
      * Also, commits a SHOW_NODE() mutation ensuring node.showBody will be set.
      *
-     * @param {object} context
-     * @param {function} context.commit - the commit method from the Vuex context
+     * @param {object} $0
+     * @param {function} $0.commit - the commit method from the Vuex context
      * @param {object} payload
      * @param {number} payload.node_id - a unique ID for the new node
      * @param {number} payload.parent - the ID of the new node’s parent node (null if at root)
@@ -26,8 +26,8 @@ let server_tree_actions = {}
     /**
      * Commits a PATCH_NODE() mutation.
      *
-     * @param {object} context
-     * @param {function} context.commit - the commit method from the Vuex context
+     * @param {object} $0
+     * @param {function} $0.commit - the commit method from the Vuex context
      * @param {object} payload - server tree node to update
      * @param {number} payload.node_id - ID of node to update
      *
@@ -40,8 +40,8 @@ let server_tree_actions = {}
     /**
      * Commits a PATCH_NODE_CONTROLS() mutation.
      *
-     * @param {object} context
-     * @param {function} context.commit - the commit method from the Vuex context
+     * @param {object} $0
+     * @param {function} $0.commit - the commit method from the Vuex context
      * @param {object} payload - object representing updates to apply
      * @param {object} payload.node_id - ID of node to update
      * @param {object} payload.controls - object containing key-value pairs of controls to update
@@ -55,8 +55,8 @@ let server_tree_actions = {}
     /**
      * Commits a SHOW_NODE() mutation.
      *
-     * @param {object} context
-     * @param {function} context.commit - the commit method from the Vuex context
+     * @param {object} $0
+     * @param {function} $0.commit - the commit method from the Vuex context
      * @param {object} payload - object representing changes to apply
      * @param {number} payload.node_id - ID of node to show/hide
      * @param {boolean} [payload.show=true] - whether or not the node should be shown or not
@@ -70,9 +70,9 @@ let server_tree_actions = {}
     /**
      * Commit SHOW_NODE() mutations to set all or no nodes to be shown.
      *
-     * @param {object} context
-     * @param {function} context.commit - the commit method from the Vuex context
-     * @param {object} context.getters - the getters defined in this module
+     * @param {object} $0
+     * @param {function} $0.commit - the commit method from the Vuex context
+     * @param {object} $0.getters - the getters defined in this module
      * @param {object} payload
      * @param {boolean} [payload.show=true] - whether nodes should be shown (true) or not (false)
      *
@@ -95,10 +95,10 @@ let server_tree_actions = {}
      * Commit an ORPHAN_NODE() mutation to orphan the specified node, and also
      * commit ORPHAN_NODE() mutations to orphan all of that node’s children.
      *
-     * @param {object} context
-     * @param {function} context.dispatch - the dispatch method from the Vuex context
-     * @param {function} context.commit - the commit method from the Vuex context
-     * @param {object} context.state - the current state in the store
+     * @param {object} $0
+     * @param {function} $0.dispatch - the dispatch method from the Vuex context
+     * @param {function} $0.commit - the commit method from the Vuex context
+     * @param {object} $0.state - the current state in the store
      * @param {object} payload
      * @param {number} payload.node_id - ID of node to orphan
      *
@@ -117,10 +117,10 @@ let server_tree_actions = {}
     /**
      * Commit ORPHAN_NODE() mutations to orphan all of a given node’s children.
      *
-     * @param {object} context
-     * @param {function} context.dispatch - the dispatch method from the Vuex context
-     * @param {function} context.commit - the commit method from the Vuex context
-     * @param {object} context.state - the current state in the store
+     * @param {object} $0
+     * @param {function} $0.dispatch - the dispatch method from the Vuex context
+     * @param {function} $0.commit - the commit method from the Vuex context
+     * @param {object} $0.state - the current state in the store
      * @param {object} payload
      * @param {number} payload.node_id - ID of node whose children should be orphaned
      *
@@ -147,10 +147,10 @@ let server_tree_actions = {}
      * Commit a DELETE_NODE() mutation to delete the specified node, and also
      * commit DELETE_NODE() mutations to delete all of that node’s children.
      *
-     * @param {object} context
-     * @param {function} context.dispatch - the dispatch method from the Vuex context
-     * @param {function} context.commit - the commit method from the Vuex context
-     * @param {object} context.state - the current state in the store
+     * @param {object} $0
+     * @param {function} $0.dispatch - the dispatch method from the Vuex context
+     * @param {function} $0.commit - the commit method from the Vuex context
+     * @param {object} $0.state - the current state in the store
      * @param {object} payload
      * @param {number} payload.node_id - ID of node to delete
      *
@@ -169,10 +169,10 @@ let server_tree_actions = {}
     /**
      * Commit DELETE_NODE() mutations to delete all of a given node’s children.
      *
-     * @param {object} context
-     * @param {function} context.dispatch - the dispatch method from the Vuex context
-     * @param {function} context.commit - the commit method from the Vuex context
-     * @param {object} context.state - the current state in the store
+     * @param {object} $0
+     * @param {function} $0.dispatch - the dispatch method from the Vuex context
+     * @param {function} $0.commit - the commit method from the Vuex context
+     * @param {object} $0.state - the current state in the store
      * @param {object} payload
      * @param {number} payload.node_id - ID of node whose children should be deleted
      *
