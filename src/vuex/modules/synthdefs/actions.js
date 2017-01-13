@@ -1,4 +1,14 @@
-/** Actions for synthdefs Vuex module. */
+/** Actions for synthdefs Vuex module.
+ *
+ *  All actions should be invoked via
+ *  {@link https://vuex.vuejs.org/en/actions.html#dispatching-actions Vuex’s dispatch method}.
+ *
+ * @example
+ * // assuming a Vuex store named “store”
+ * store.dispatch('post_synthdef', {
+ *   // a synthdef object to post
+ * })
+ */
 let synthdefs_actions = {}
 
     /**
