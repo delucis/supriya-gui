@@ -1,7 +1,7 @@
 import Vue from 'vue'
 
 /** Mutations for synthdefs Vuex module. */
-synthdefs_mutations = {}
+let synthdefs_mutations = {}
 
     /**
      * Add a new synthdef to the store, and index it by its unique hash.
