@@ -1,3 +1,15 @@
+/**
+ * Helper function returning an array of “breadcrumbs” to a node in a tree of
+ * nodes with parent IDs.
+ * @module
+ *
+ * @param {Object} node
+ * @param {Number} node.parent - ID of the parent of the node to be breadcrumbed
+ * @param {Object} nodes
+ * @param {Number} nodes[].parent - Each node in nodes is expected to have a parent property.
+ *
+ * @returns {(Number[]|null)} - An array of parent IDs tracing the given node’s ancestors.
+ */
 export default function getBreadcrumbs (node, nodes) {
   // build a “breadcrumbs” array for a given node by querying the properties
   // of all known nodes in a nodes object
