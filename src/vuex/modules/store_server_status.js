@@ -1,3 +1,8 @@
+/**
+ * Vuex store module for managing data about the current server status.
+ * @module
+ */
+
 import Vue from 'vue'
 
 // create a Vuex store module to hold server status data

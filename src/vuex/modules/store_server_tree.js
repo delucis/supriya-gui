@@ -1,3 +1,8 @@
+/**
+ * Vuex store module for managing the state of a tree of server nodes.
+ * @module
+ */
+
 import Vue from 'vue'
 import getBreadcrumbs from './../helpers/getBreadcrumbs.js'
 import getTarget from './../helpers/getTarget.js'

@@ -1,3 +1,8 @@
+/**
+ * Vuex store module for managing synthdefs provided by the server.
+ * @module
+ */
+
 import Vue from 'vue'
 
 export default  {

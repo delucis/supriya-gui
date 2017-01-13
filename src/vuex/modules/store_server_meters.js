@@ -1,3 +1,8 @@
+/**
+ * Vuex store module for managing audio metering state.
+ * @module
+ */
+
 import Vue from 'vue'
 
 // create a Vuex store module to hold audio meters data from server
