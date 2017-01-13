@@ -1,17 +1,10 @@
 import Vue from 'vue'
-import getBreadcrumbs from './../helpers/getBreadcrumbs.js'
-import getTarget from './../helpers/getTarget.js'
+import getBreadcrumbs from './../../helpers/getBreadcrumbs.js'
+import getTarget from './../../helpers/getTarget.js'
 
-// define a Vuex store module to handle server tree state
-export default {
-  state: {
-    nodes: {},
-    orphans: {},
-    tree: {
-      child_nodes: {}
-    }
-  },
-  mutations: {
+/** Mutations for store_server_tree Vuex module. */
+let server_tree_mutations = {}
+
     /**
      * Adds a new node to the server tree. Errors if `node_id` already exists.
      *
@@ -22,7 +15,7 @@ export default {
      *
      * @see PATCH_NODE
      */
-    POST_NODE (state, payload) {
+    server_tree_mutations.POST_NODE = function (state, payload) {
       // alias payload for more reasonable code
       let node = payload
       // make sure all conditions are met to add node to tree
@@ -89,7 +82,8 @@ export default {
           }
         }
       }
-    },
+    }
+
     /**
      * Updates an existing node in the server tree. Errors if `node_id` doesn’t exist.
      * Updated properties must match in type. Adding properties to nodes is permitted.
@@ -99,7 +93,7 @@ export default {
      *
      * @see POST_NODE
      */
-    PATCH_NODE (state, payload) {
+    server_tree_mutations.PATCH_NODE = function (state, payload) {
       if (!payload.hasOwnProperty('node_id')) {
         console.error('PATCH_NODE(): payload object must have node_id property.')
         return
@@ -119,7 +113,8 @@ export default {
           }
         }
       }
-    },
+    }
+
     /**
      * Set the controls values for a node in the server tree.
      *
@@ -128,35 +123,29 @@ export default {
      * @param {object} payload.node_id - ID of node to update
      * @param {object} payload.controls - object containing key-value pairs of controls to update
      */
-    update_server_tree_node_controls (state, payload) {
-      if (payload.hasOwnProperty('node_id')) {
-        if (state.nodes.hasOwnProperty(payload.node_id)) {
-          if (payload.hasOwnProperty('controls')
-              && typeof payload.controls === 'object'
-              && payload.controls !== null)
-          {
-            if (state.nodes[payload.node_id].hasOwnProperty('controls')
-                && typeof state.nodes[payload.node_id].controls === 'object'
-                && state.nodes[payload.node_id].controls !== null)
-            {
-              for (var control in payload.controls) {
-                if (payload.controls.hasOwnProperty(control)) {
-                  Vue.set(state.nodes[payload.node_id].controls, control, payload.controls[control])
-                }
-              }
-            } else {
-              console.error('update_server_tree_node_controls(): server_tree node “' + payload.node_id + '” does not contain a valid “controls” object.')
-            }
-          } else {
-            console.error('update_server_tree_node_controls(): payload does not contain a valid “controls” object.')
-          }
-        } else {
-          console.error('update_server_tree_node_controls(): server_tree does not contain a node with id of “' + payload.node_id + '”.')
-        }
-      } else {
-        console.error('update_server_tree_node_controls(): payload object must have node_id property.')
+    server_tree_mutations.PATCH_NODE_CONTROLS = function (state, payload) {
+      if (!payload.hasOwnProperty('node_id')) {
+        console.error('PATCH_NODE_CONTROLS(): payload object must have node_id property.')
+        return
       }
-    },
+      if (!state.nodes.hasOwnProperty(payload.node_id)) {
+        console.error('PATCH_NODE_CONTROLS(): server_tree does not contain a node with id of “' + payload.node_id + '”.')
+        return
+      }
+      if (!payload.hasOwnProperty('controls')
+          || typeof payload.controls !== 'object'
+          || payload.controls === null)
+      {
+        console.error('PATCH_NODE_CONTROLS(): payload does not contain a valid “controls” object.')
+        return
+      }
+      for (var control in payload.controls) {
+        if (payload.controls.hasOwnProperty(control)) {
+          Vue.set(state.nodes[payload.node_id].controls, control, payload.controls[control])
+        }
+      }
+    }
+
     /**
      * Set whether a node is shown or hidden in the server tree.
      *
@@ -165,7 +154,7 @@ export default {
      * @param {number} payload.node_id - ID of node to show/hide
      * @param {boolean} [payload.show=true] - whether or not the node should be shown or not
      */
-    SHOW_NODE (state, payload) {
+    server_tree_mutations.SHOW_NODE = function (state, payload) {
       if (!payload.hasOwnProperty('node_id')) {
         console.error('SHOW_NODE(): payload object must have node_id property.')
         return
@@ -177,63 +166,61 @@ export default {
       let show = payload.hasOwnProperty('show') ? payload.show : true
       Vue.set(state.nodes[payload.node_id], 'showBody', show)
     }
-  },
-  actions: {
-    show_node (context, payload) {
-      context.commit('SHOW_NODE', payload)
-    },
-    show_nodes (context, payload) {
-      let show = payload.hasOwnProperty('show') ? payload.show : true
-      let nodes = show ? context.getters.unshownNodes : context.getters.shownNodes
-      for (var node in nodes) {
-        if (nodes.hasOwnProperty(node)) {
-          context.commit('SHOW_NODE', {
-            node_id: node,
-            show: show
-          })
-        }
+
+    /**
+     * Move a node from state.nodes to state.orphans, and remove it from state.tree.
+     *
+     * @param {object} state - current state in store
+     * @param {object} payload
+     * @param {number} payload.node_id - ID of node to move
+     */
+    server_tree_mutations.ORPHAN_NODE = function (state, payload) {
+      if (!payload.hasOwnProperty('node_id')) {
+        console.error('ORPHAN_NODE(): payload object must have node_id property.')
+        return
+      }
+      if (!state.nodes.hasOwnProperty(payload.node_id)) {
+        console.error('ORPHAN_NODE(): server_tree does not contain a node with id of “' + payload.node_id + '”.')
+        return
+      }
+      let id = payload.node_id
+      let node = state.nodes[id]
+      // remove node from its location in state.tree
+      let target = getTarget(state.tree, node.breadcrumbs)
+      Vue.delete(target.child_nodes, id)
+      // move node from state.nodes to state.orphans
+      Vue.set(state.orphans, id, node)
+      Vue.delete(state.nodes, id)
+    }
+
+    /**
+     * Remove a node from state.orphans or from state.tree and state.nodes.
+     *
+     * @param {object} state - current state in store
+     * @param {object} payload
+     * @param {number} payload.node_id - ID of node to remove
+     */
+    server_tree_mutations.DELETE_NODE = function (state, payload) {
+      if (!payload.hasOwnProperty('node_id')) {
+        console.error('DELETE_NODE(): payload object must have node_id property.')
+        return
+      }
+      if ( ! ( state.nodes.hasOwnProperty(payload.node_id)
+               || state.orphans.hasOwnProperty(payload.node_id) ) )
+      {
+        console.error('DELETE_NODE(): server_tree does not contain a node with id of “' + payload.node_id + '”.')
+        return
+      }
+      if (state.nodes.hasOwnProperty(payload.node_id)) {
+        // delete the node from its location in state.tree
+        let target = getTarget(state.tree, state.nodes[payload.node_id].breadcrumbs)
+        Vue.delete(target.child_nodes, payload.node_id)
+        // delete the node from state.nodes
+        Vue.delete(state.nodes, payload.node_id)
+      } else if (state.orphans.hasOwnProperty(payload.node_id)) {
+        // delete the node from state.tree
+        Vue.delete(state.orphans, payload.node_id)
       }
     }
-  },
-  getters: {
-    shownNodes: state => {
-      let nodes = state.nodes
-      let shownNodes = {}
-      for (var node in nodes) {
-        if (nodes.hasOwnProperty(node)) {
-          if (nodes[node].showBody) {
-            shownNodes[node] = nodes[node]
-          }
-        }
-      }
-      return shownNodes
-    },
-    unshownNodes: state => {
-      let nodes = state.nodes
-      let unshownNodes = {}
-      for (var node in nodes) {
-        if (nodes.hasOwnProperty(node)) {
-          if (!nodes[node].showBody) {
-            unshownNodes[node] = nodes[node]
-          }
-        }
-      }
-      return unshownNodes
-    },
-    nodesCount: state => {
-      return Object.keys(state.nodes).length
-    },
-    shownNodesCount: (state, getters) => {
-      return Object.keys(getters.shownNodes).length
-    },
-    unshownNodesCount: (state, getters) => {
-      return Object.keys(getters.unshownNodes).length
-    },
-    isAllNodesShown: (state, getters) => {
-      return getters.shownNodesCount === getters.nodesCount
-    },
-    isNoNodesShown: (state, getters) => {
-      return getters.unshownNodesCount === getters.nodesCount
-    }
-  }
-}
+
+export default server_tree_mutations

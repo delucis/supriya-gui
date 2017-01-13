@@ -7,7 +7,7 @@
     "vue": "vue/dist/vue.common"
   },
   "scripts": {
-    "docs": "documentation serve src/app.js",
+    "docs": "documentation serve src/app.js --watch --github",
     "start": "npm run build && node server.js",
     "dev": "cross-env NODE_ENV=development webpack-dev-server --open --inline --hot",
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules",
