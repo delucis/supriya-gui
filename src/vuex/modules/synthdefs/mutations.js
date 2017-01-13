@@ -1,16 +1,7 @@
-/**
- * Vuex store module for managing synthdefs provided by the server.
- * @module
- */
-
 import Vue from 'vue'
 
-let store_synthdefs = {}
-
-store_synthdefs.state = {}
-
-/** Mutations for store_synthdefs Vuex module. */
-store_synthdefs.mutations = {}
+/** Mutations for synthdefs Vuex module. */
+synthdefs_mutations = {}
 
     /**
      * Add a new synthdef to the store, and index it by its unique hash.
@@ -21,7 +12,7 @@ store_synthdefs.mutations = {}
      * @param {string} payload.name - human-readable name
      * @param {object} payload.parameters - object containing definitions of the synthdef’s parameters
      */
-    store_synthdefs.mutations.POST_SYNTHDEF = function (state, payload) {
+    synthdefs_mutations.POST_SYNTHDEF = function (state, payload) {
       let synthdef = payload
       if (!synthdef.hasOwnProperty('hash')) {
         console.error('POST_SYNTHDEF(): synthdef payload does not contain a hash property.')
@@ -44,7 +35,7 @@ store_synthdefs.mutations = {}
      * @param {string} payload.name - human-readable name
      * @param {object} payload.parameters - object containing definitions of the synthdef’s parameters
      */
-    store_synthdefs.mutations.PUT_SYNTHDEF = function (state, payload) {
+    synthdefs_mutations.PUT_SYNTHDEF = function (state, payload) {
       let synthdef = payload
       if (!synthdef.hasOwnProperty('hash')) {
         console.error('PUT_SYNTHDEF(): synthdef payload does not contain a hash property.')
@@ -64,7 +55,7 @@ store_synthdefs.mutations = {}
      * @param {object} state - current state in store
      * @param {string} payload - a synthdef hash
      */
-    store_synthdefs.mutations.DELETE_SYNTHDEF = function (state, payload) {
+    synthdefs_mutations.DELETE_SYNTHDEF = function (state, payload) {
       if (typeof payload !== 'string') {
         console.error('DELETE_SYNTHDEF(): payload must be a string.')
         return { status: 404 }
@@ -77,4 +68,4 @@ store_synthdefs.mutations = {}
       return { status: 200, data: null }
     }
 
-export default store_synthdefs
+export default synthdefs_mutations
