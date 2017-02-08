@@ -25,7 +25,7 @@ npm start
 
 ## Contributing
 
-- Please take a look at [the current roadmap](/projects/1).
+- Please take a look at [the current roadmap](https://github.com/delucis/supriya-gui/projects/1).
 - Some notes on coding style are in [the `STYLEGUIDE`](/STYLEGUIDE.md).
 - Always work in a [feature branch](https://www.atlassian.com/git/tutorials/comparing-workflows#feature-branch-workflow).
 
