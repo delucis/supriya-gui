@@ -23,6 +23,12 @@ npm run build
 npm start
 ```
 
+## Contributing
+
+- Please take a look at [the current roadmap](/projects/1).
+- Some notes on coding style are in [the `STYLEGUIDE`](/STYLEGUIDE.md).
+- Always work in a [feature branch](https://www.atlassian.com/git/tutorials/comparing-workflows#feature-branch-workflow).
+
 ## API Notes
 
 - [Supriya JSON examples](https://gist.github.com/josiah-wolf-oberholtzer/2bb611ffbd1fe0a1f2e8c44dd64666be)
